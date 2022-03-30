@@ -2,7 +2,7 @@
 import Game from "./components/game";
 
 // CSS
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
