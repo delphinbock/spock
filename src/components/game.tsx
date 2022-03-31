@@ -206,7 +206,7 @@ const Winner = ({ playerObj }: any) => {
         <div>
           <img
             src={require(`./../assets/img/vs.png`)}
-            alt={items[0]}
+            alt="vs"
             className="bounceIn"
           />
         </div>

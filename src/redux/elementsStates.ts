@@ -84,7 +84,6 @@ export const {
   toggle,
   winner,
   borderColor,
-  score,
   incrementPlayerScore,
   incrementComputerScore,
   changeTheme,
