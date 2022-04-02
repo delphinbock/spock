@@ -1,7 +1,27 @@
-@import url("http://fonts.cdnfonts.com/css/space-ranger");
-
+$urlSite: "http://localhost:3000";
+$imgPath: "/img/";
+$fontPath: "/fonts/";
+$fontNameFile: "spaceranger";
+$fontName: "Space Ranger";
+$bgThunder: $urlSite + $imgPath + "thunder.png";
 $bgColor: white;
 $imgItemsWidth: 6rem;
+
+@mixin declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName) {
+  @font-face {
+    font-family: $fontName;
+    src: url($urlSite + $fontPath + $fontNameFile + ".woff") format("woff"),
+      url($urlSite + $fontPath + $fontNameFile + ".eot"),
+      url($urlSite + $fontPath + $fontNameFile + ".eot?#iefix") format("embedded-opentype"),
+      url($urlSite + $fontPath + $fontNameFile + ".ttf") format("truetype"),
+      url($urlSite + $fontPath + $fontNameFile + ".svg") format("svg");
+    font-weight: 100 299;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@include declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName);
 
 /* Dark theme */
 body[data-first] {
@@ -9,8 +29,6 @@ body[data-first] {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body[data-first] div.centered {
@@ -24,8 +42,6 @@ body[data-second] {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body[data-second] div.centered {
@@ -149,6 +165,7 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 15px;
 }
 
 .winner div {
@@ -162,7 +179,7 @@ h2 {
 .winner div span {
   display: block;
   margin-bottom: 1rem;
-  font-family: "Space Ranger Title", sans-serif;
+  font-family: "Space Ranger", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -187,7 +204,7 @@ h2 {
 }
 .title,
 .rules h2 {
-  font-family: "Space Ranger Title", sans-serif;
+  font-family: "Space Ranger", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -778,7 +795,7 @@ h2 {
   bottom: 0;
   opacity: 1;
   width: 100%;
-  background: no-repeat url("../../assets/img/thunder.png");
+  background: no-repeat url($bgThunder);
   animation: flash 5s linear infinite;
 }
 @keyframes flash {

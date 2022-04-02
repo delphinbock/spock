@@ -26,8 +26,14 @@ interface RootState {
   gameElement: any;
 }
 
-// Items
-const items = ["scissors", "paper", "rock", "lizard", "spock"];
+// Paths
+const imgPath = process.env.REACT_APP_IMG_PATH;
+const imgNumPath = process.env.REACT_APP_IMG_NUM_PATH;
+console.log(imgNumPath)
+
+// Objs
+const imgObj = require("../../src/objects/imgObj.json");
+const numbersObj = require("../../src/objects/numbersObj.json");
 
 /* PICK */
 const ItemsPick = () => {
@@ -77,13 +83,15 @@ const ItemsPick = () => {
         {/* First row */}
         <div className="first">
           <div className="pulse">
-            {hoverItem === items[0] ? <span>{hoverItem}</span> : null}
+            {hoverItem === imgObj.scissors.name ? (
+              <span>{hoverItem}</span>
+            ) : null}
             <img
-              onMouseEnter={() => displayPopover(items[0])}
+              onMouseEnter={() => displayPopover(imgObj.scissors.name)}
               onMouseLeave={() => displayPopover("")}
-              onClick={() => pick(items[0])}
-              src={require(`./../assets/img/${items[0]}.png`)}
-              alt={items[0]}
+              onClick={() => pick(imgObj.scissors.name)}
+              src={`${imgPath}${imgObj.scissors.value}`}
+              alt={imgObj.scissors.name}
             />
           </div>
         </div>
@@ -91,23 +99,23 @@ const ItemsPick = () => {
         {/* Second row */}
         <div className="second">
           <div className="pulse">
-            {hoverItem === items[1] ? <span>{hoverItem}</span> : null}
+            {hoverItem === imgObj.paper.name ? <span>{hoverItem}</span> : null}
             <img
-              onMouseEnter={() => displayPopover(items[1])}
+              onMouseEnter={() => displayPopover(imgObj.paper.name)}
               onMouseLeave={() => displayPopover("")}
-              onClick={() => pick(items[1])}
-              src={require(`./../assets/img/${items[1]}.png`)}
-              alt={items[1]}
+              onClick={() => pick(imgObj.paper.name)}
+              src={`${imgPath}${imgObj.paper.value}`}
+              alt={imgObj.paper.name}
             />
           </div>
           <div className="pulse">
-            {hoverItem === items[2] ? <span>{hoverItem}</span> : null}
+            {hoverItem === imgObj.rock.name ? <span>{hoverItem}</span> : null}
             <img
-              onMouseEnter={() => displayPopover(items[2])}
+              onMouseEnter={() => displayPopover(imgObj.rock.name)}
               onMouseLeave={() => displayPopover("")}
-              onClick={() => pick(items[2])}
-              src={require(`./../assets/img/${items[2]}.png`)}
-              alt={items[2]}
+              onClick={() => pick(imgObj.rock.name)}
+              src={`${imgPath}${imgObj.rock.value}`}
+              alt={imgObj.rock.name}
             />
           </div>
         </div>
@@ -115,23 +123,23 @@ const ItemsPick = () => {
         {/* Third row */}
         <div className="third">
           <div className="pulse">
-            {hoverItem === items[3] ? <span>{hoverItem}</span> : null}
+            {hoverItem === imgObj.lizard.name ? <span>{hoverItem}</span> : null}
             <img
-              onMouseEnter={() => displayPopover(items[3])}
+              onMouseEnter={() => displayPopover(imgObj.lizard.name)}
               onMouseLeave={() => displayPopover("")}
-              onClick={() => pick(items[3])}
-              src={require(`./../assets/img/${items[3]}.png`)}
-              alt={items[3]}
+              onClick={() => pick(imgObj.lizard.name)}
+              src={`${imgPath}${imgObj.lizard.value}`}
+              alt={imgObj.lizard.name}
             />
           </div>
           <div className="pulse">
-            {hoverItem === items[4] ? <span>{hoverItem}</span> : null}
+            {hoverItem === imgObj.spock.name ? <span>{hoverItem}</span> : null}
             <img
-              onMouseEnter={() => displayPopover(items[4])}
+              onMouseEnter={() => displayPopover(imgObj.spock.name)}
               onMouseLeave={() => displayPopover("")}
-              onClick={() => pick(items[4])}
-              src={require(`./../assets/img/${items[4]}.png`)}
-              alt={items[4]}
+              onClick={() => pick(imgObj.spock.name)}
+              src={`${imgPath}${imgObj.spock.value}`}
+              alt={imgObj.spock.name}
             />
           </div>
         </div>
@@ -157,8 +165,8 @@ const ReplayButton = () => {
     <div className="replay replayButton">
       <img
         onClick={() => reset()}
-        src={require(`./../assets/img/replay.png`)}
-        alt="replay"
+        src={`${imgPath}${imgObj.replay.value}`}
+        alt={imgObj.replay.name}
       />
     </div>
   );
@@ -192,31 +200,31 @@ const Winner = ({ playerObj }: any) => {
     }
   });
 
+  // Player picked item
+  let str1: any = playerObj.player;
+  let keyStr1: any = imgObj[str1 as keyof typeof imgObj].value;
+
+  // Computer picked item
+  let str2: any = playerObj.computer;
+  let keyStr2: any = imgObj[str2 as keyof typeof imgObj].value;
+
   return (
     <>
       <div className="winner">
         <div>
           <span>Player</span>
-          <img
-            src={require(`./../assets/img/${playerObj.player}.png`)}
-            alt="player"
-            className="tada"
-          />
+          <img src={`${imgPath}${keyStr1}`} alt="player" className="tada" />
         </div>
         <div>
           <img
-            src={require(`./../assets/img/vs.png`)}
-            alt="vs"
+            src={`${imgPath}${imgObj.vs.value}`}
+            alt={imgObj.vs.name}
             className="bounceIn"
           />
         </div>
         <div>
           <span>Computer</span>
-          <img
-            src={require(`./../assets/img/${playerObj.computer}.png`)}
-            alt="computer"
-            className="tada"
-          />
+          <img src={`${imgPath}${keyStr2}`} alt="computer" className="tada" />
         </div>
       </div>
       <div className="win">
@@ -225,8 +233,8 @@ const Winner = ({ playerObj }: any) => {
           <>
             <Fireworks />
             <img
-              src={require(`./../assets/img/win.png`)}
-              alt="win"
+              src={`${imgPath}${imgObj.win.value}`}
+              alt={imgObj.win.name}
               className="zoomInDown"
             />
           </>
@@ -238,8 +246,8 @@ const Winner = ({ playerObj }: any) => {
             <div id="lightning_hero"></div>
             <div className="overlay"></div>
             <img
-              src={require(`./../assets/img/lose.png`)}
-              alt="lose"
+              src={`${imgPath}${imgObj.lose.value}`}
+              alt={imgObj.lose.name}
               className="zoomInDown"
             />
           </>
@@ -247,8 +255,8 @@ const Winner = ({ playerObj }: any) => {
         {/* Equality */}
         {!playerObj.fullObj.player1 && !playerObj.fullObj.player2 ? (
           <img
-            src={require(`./../assets/img/equality.png`)}
-            alt="equality"
+            src={`${imgPath}${imgObj.equality.value}`}
+            alt={imgObj.equality.name}
             className="zoomInDown equality"
           />
         ) : null}
@@ -295,11 +303,14 @@ const Score = () => {
       </div>
       <div>
         {/* Player score */}
-        {scorePlayerArr.map((element: any, i: number) => {
+        {scorePlayerArr.map((element: number, i: number) => {
+          let keyStr: string =
+            numbersObj[element as keyof typeof numbersObj].value;
+
           return (
             <img
               key={i}
-              src={require(`./../assets/img/numbers/${element}.png`)}
+              src={`${imgNumPath}${keyStr}`}
               alt="number"
               className="number"
             />
@@ -308,8 +319,8 @@ const Score = () => {
       </div>
       <div>
         <img
-          src={require(`./../assets/img/versus.png`)}
-          alt="versus"
+          src={`${imgPath}${imgObj.versus.value}`}
+          alt={imgObj.versus.name}
           className="versus"
         />
       </div>
@@ -318,11 +329,14 @@ const Score = () => {
       </div>
       <div>
         {/* Computer score */}
-        {scoreComputerArr.map((element: any, i: number) => {
+        {scoreComputerArr.map((element: number, i: number) => {
+          let keyStr: string =
+            numbersObj[element as keyof typeof numbersObj].value;
+
           return (
             <img
               key={i}
-              src={require(`./../assets/img/numbers/${element}.png`)}
+              src={`${imgNumPath}${keyStr}`}
               alt="number"
               className="number"
             />
