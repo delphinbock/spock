@@ -12,7 +12,8 @@ $imgItemsWidth: 6rem;
     font-family: $fontName;
     src: url($urlSite + $fontPath + $fontNameFile + ".woff") format("woff"),
       url($urlSite + $fontPath + $fontNameFile + ".eot"),
-      url($urlSite + $fontPath + $fontNameFile + ".eot?#iefix") format("embedded-opentype"),
+      url($urlSite + $fontPath + $fontNameFile + ".eot?#iefix")
+        format("embedded-opentype"),
       url($urlSite + $fontPath + $fontNameFile + ".ttf") format("truetype"),
       url($urlSite + $fontPath + $fontNameFile + ".svg") format("svg");
     font-weight: 100 299;
@@ -24,12 +25,12 @@ $imgItemsWidth: 6rem;
 @include declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName);
 
 /* Dark theme */
-body[data-first] {
+/*body[data-first] {
   background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
-}
+}*/
 
 body[data-first] div.centered {
   color: rgb(255, 255, 255);
@@ -37,12 +38,12 @@ body[data-first] div.centered {
 }
 
 /* Light theme */
-body[data-second] {
+/*body[data-second] {
   background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
-}
+}*/
 
 body[data-second] div.centered {
   color: rgb(0, 0, 0);
@@ -53,7 +54,7 @@ h2 {
   margin-top: 1rem;
 }
 
-.centered {
+/*.centered {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,7 +67,7 @@ h2 {
   width: 500px;
   height: 880px;
   min-height: 880px;
-}
+}*/
 
 .blue {
   border: 0.2rem solid rgb(0, 132, 255);
@@ -788,7 +789,7 @@ h2 {
 }
 
 /* Thunder */
-.overlay {
+/*.overlay {
   height: 532px;
   position: absolute;
   left: 0;
@@ -797,7 +798,7 @@ h2 {
   width: 100%;
   background: no-repeat url($bgThunder);
   animation: flash 5s linear infinite;
-}
+}*/
 @keyframes flash {
   9% {
     opacity: 0;
@@ -834,5 +835,144 @@ h2 {
   }
   94% {
     opacity: 0;
+  }
+}
+
+/* Responsive */
+$breakpoints: (
+  sm: (
+    min: 300px,
+    max: 675.98px,
+  ),
+  md: (
+    min: 676px,
+    max: 991.98px,
+  ),
+  lg: (
+    min: 992px,
+    max: 1199.98px,
+  ),
+  xl: (
+    min: 1200px,
+    max: 1399.98px,
+  ),
+  xxl: (
+    min: 1400px,
+    max: 2599.98px,
+  ),
+);
+
+@mixin breakpoint($breakpoint, $direction: min) {
+  //check if the supplied breakpoint exists in our breakpoits map
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    //check if we are writing styles for larger or smaller screens
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
+    }
+
+    // use the custom value if the breakpoint is not part of the pre-defined list
+  } @else {
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+
+.centered {
+  padding: 1rem;
+
+  @include breakpoint(sm) {
+    width: initial;
+    position: initial;
+    top: initial;
+    left: initial;
+    transform: translate(0, 0);
+    -webkit-transform: none;
+    height: initial;
+    min-height: initial;
+    overflow: hidden;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  @include breakpoint(lg) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $bgColor;
+    padding: 1rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 500px;
+    height: 880px;
+    min-height: 880px;
+  }
+}
+
+body[data-second] {
+  @include breakpoint(sm) {
+    animation: none;
+    background: white;
+    height: initial;
+    overflow: hidden;
+  }
+  @include breakpoint(lg) {
+    background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+}
+
+body[data-first] {
+  @include breakpoint(sm) {
+    animation: none;
+    background: black;
+    height: initial;
+    overflow: hidden;
+  }
+  @include breakpoint(lg) {
+    background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+  width: 100%;
+  background: no-repeat url($bgThunder);
+  animation: flash 5s linear infinite;
+
+  @include breakpoint(sm) {
+    height: 405px;
+    bottom: initial;
+    left: 20%;
+  }
+  @include breakpoint(lg) {
+    height: 550px;
+    bottom: initial;
+    left: 0;
   }
 }

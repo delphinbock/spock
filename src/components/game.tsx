@@ -29,7 +29,6 @@ interface RootState {
 // Paths
 const imgPath = process.env.REACT_APP_IMG_PATH;
 const imgNumPath = process.env.REACT_APP_IMG_NUM_PATH;
-console.log(imgNumPath)
 
 // Objs
 const imgObj = require("../../src/objects/imgObj.json");
