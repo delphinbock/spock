@@ -1,238 +1,3 @@
-$urlSite: "http://localhost:3000";
-$imgPath: "/img/";
-$fontPath: "/fonts/";
-$fontNameFile: "spaceranger";
-$fontName: "Space Ranger";
-$bgThunder: $urlSite + $imgPath + "thunder.png";
-$bgColor: white;
-$imgItemsWidth: 6rem;
-
-@mixin declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName) {
-  @font-face {
-    font-family: $fontName;
-    src: url($urlSite + $fontPath + $fontNameFile + ".woff") format("woff"),
-      url($urlSite + $fontPath + $fontNameFile + ".eot"),
-      url($urlSite + $fontPath + $fontNameFile + ".eot?#iefix")
-        format("embedded-opentype"),
-      url($urlSite + $fontPath + $fontNameFile + ".ttf") format("truetype"),
-      url($urlSite + $fontPath + $fontNameFile + ".svg") format("svg");
-    font-weight: 100 299;
-    font-style: normal;
-    font-display: swap;
-  }
-}
-
-@include declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName);
-
-/* Dark theme */
-/*body[data-first] {
-  background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}*/
-
-body[data-first] div.centered {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-}
-
-/* Light theme */
-/*body[data-second] {
-  background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}*/
-
-body[data-second] div.centered {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-}
-
-h2 {
-  margin-top: 1rem;
-}
-
-/*.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: $bgColor;
-  padding: 1rem;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  width: 500px;
-  height: 880px;
-  min-height: 880px;
-}*/
-
-.blue {
-  border: 0.2rem solid rgb(0, 132, 255);
-}
-
-.green {
-  border: 0.2rem solid rgb(14, 214, 64);
-}
-
-.red {
-  border: 0.2rem solid rgb(255, 0, 0);
-}
-
-.number {
-  height: 1.5rem;
-  margin-left: 0.2rem;
-}
-
-.score,
-.score div {
-  font-size: 2rem !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.score div:nth-child(2),
-.score div:nth-child(3),
-.score div:nth-child(4),
-.score div:nth-child(5) {
-  margin-left: 1rem;
-}
-
-.versus {
-  height: 2rem;
-}
-
-.list {
-  list-style: none;
-  text-align: left;
-}
-
-.list img {
-  width: $imgItemsWidth;
-}
-
-.first,
-.second,
-.third {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.second div:nth-child(2) {
-  margin-left: 35%;
-}
-
-.third div:nth-child(2) {
-  margin-left: 12%;
-}
-
-.first div,
-.second div,
-.third div {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.first div span,
-.second div span,
-.third div span {
-  display: block;
-  text-align: center;
-  position: absolute;
-  z-index: 999;
-  margin-left: -54px;
-  margin-top: 20px;
-  background-color: gray;
-  color: white;
-  padding: 0.2rem;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.third div {
-  margin-top: 30px;
-}
-
-.winner {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.winner div {
-  margin: 0 1rem 0 1rem;
-}
-
-.winner div:nth-child(1) {
-  width: 170px;
-}
-
-.winner div span {
-  display: block;
-  margin-bottom: 1rem;
-  font-family: "Space Ranger", sans-serif;
-  font-size: 1.5rem;
-}
-
-.winner div img {
-  height: 120px;
-}
-
-.win {
-  min-height: 300px;
-}
-
-.win img {
-  height: 300px;
-}
-
-.winner div:nth-child(2) img {
-  width: 50px;
-}
-
-.rules {
-  text-align: left;
-}
-.title,
-.rules h2 {
-  font-family: "Space Ranger", sans-serif;
-  font-size: 1.5rem;
-}
-
-.equality {
-  height: 177px !important;
-  margin-top: 67px;
-}
-
-.replay img {
-  cursor: pointer;
-  width: 150px;
-  animation: pulse 1s infinite;
-  animation-timing-function: linear;
-}
-
-/***** Pulse *****/
-
-.pulse img:hover {
-  animation: pulse 1s infinite;
-  animation-timing-function: linear;
-}
-
-.pulseAnimation {
-  animation: pulse 1.5s infinite;
-  animation-timing-function: linear;
-}
-
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -245,22 +10,6 @@ h2 {
   }
 }
 
-/***** Zoom *****/
-
-.zoom img:hover {
-  transform: scale(1.8);
-  transition: all ease 1000ms;
-}
-
-/* CSS EFFECT ANIMATION */
-.zoomInDown {
-  -webkit-animation-name: zoomInDown;
-  animation-name: zoomInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
 @-webkit-keyframes zoomInDown {
   0% {
     opacity: 0;
@@ -277,6 +26,7 @@ h2 {
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
+
 @keyframes zoomInDown {
   0% {
     opacity: 0;
@@ -294,16 +44,6 @@ h2 {
   }
 }
 
-.bounceIn {
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
-  -webkit-animation-duration: 0.75s;
-  animation-duration: 0.75s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
 @-webkit-keyframes bounceIn {
   0%,
   20%,
@@ -342,6 +82,7 @@ h2 {
     transform: scale3d(1, 1, 1);
   }
 }
+
 @keyframes bounceIn {
   0%,
   20%,
@@ -381,14 +122,6 @@ h2 {
   }
 }
 
-.tada {
-  -webkit-animation-name: tada;
-  animation-name: tada;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
 @-webkit-keyframes tada {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -417,6 +150,7 @@ h2 {
     transform: scale3d(1, 1, 1);
   }
 }
+
 @keyframes tada {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -446,64 +180,6 @@ h2 {
   }
 }
 
-/* Background effect */
-.pyro > .before,
-.pyro > .after {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84,
-    190px 16.33333px #002bff, -113px -308.66667px #ff009d,
-    -109px -287.66667px #ffb300, -50px -313.66667px #ff006e,
-    226px -31.66667px #ff4000, 180px -351.66667px #ff00d0,
-    -12px -338.66667px #00f6ff, 220px -388.66667px #99ff00,
-    -69px -27.66667px #ff0400, -111px -339.66667px #6200ff,
-    155px -237.66667px #00ddff, -152px -380.66667px #00ffd0,
-    -50px -37.66667px #00ffdd, -95px -175.66667px #a6ff00,
-    -88px 10.33333px #0d00ff, 112px -309.66667px #005eff,
-    69px -415.66667px #ff00a6, 168px -100.66667px #ff004c,
-    -244px 24.33333px #ff6600, 97px -325.66667px #ff0066,
-    -211px -182.66667px #00ffa2, 236px -126.66667px #b700ff,
-    140px -196.66667px #9000ff, 125px -175.66667px #00bbff,
-    118px -381.66667px #ff002f, 144px -111.66667px #ffae00,
-    36px -78.66667px #f600ff, -63px -196.66667px #c800ff,
-    -218px -227.66667px #d4ff00, -134px -377.66667px #ea00ff,
-    -36px -412.66667px #ff00d4, 209px -106.66667px #00fff2,
-    91px -278.66667px #000dff, -22px -191.66667px #9dff00,
-    139px -392.66667px #a6ff00, 56px -2.66667px #0099ff,
-    -156px -276.66667px #ea00ff, -163px -233.66667px #00fffb,
-    -238px -346.66667px #00ff73, 62px -363.66667px #0088ff,
-    244px -170.66667px #0062ff, 224px -142.66667px #b300ff,
-    141px -208.66667px #9000ff, 211px -285.66667px #ff6600,
-    181px -128.66667px #1e00ff, 90px -123.66667px #c800ff,
-    189px 70.33333px #00ffc8, -18px -383.66667px #00ff33,
-    100px -6.66667px #ff008c;
-  -moz-animation: 1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -webkit-animation: 1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -o-animation: 1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -ms-animation: 1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  animation: 1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-}
-
-.pyro > .after {
-  -moz-animation-delay: 1.25s, 1.25s, 1.25s;
-  -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
-  -o-animation-delay: 1.25s, 1.25s, 1.25s;
-  -ms-animation-delay: 1.25s, 1.25s, 1.25s;
-  animation-delay: 1.25s, 1.25s, 1.25s;
-  -moz-animation-duration: 1.25s, 1.25s, 6.25s;
-  -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
-  -o-animation-duration: 1.25s, 1.25s, 6.25s;
-  -ms-animation-duration: 1.25s, 1.25s, 6.25s;
-  animation-duration: 1.25s, 1.25s, 6.25s;
-}
-
 @-webkit-keyframes bang {
   from {
     box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
@@ -517,6 +193,7 @@ h2 {
       0 0 white, 0 0 white, 0 0 white;
   }
 }
+
 @-moz-keyframes bang {
   from {
     box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
@@ -530,6 +207,7 @@ h2 {
       0 0 white, 0 0 white, 0 0 white;
   }
 }
+
 @-o-keyframes bang {
   from {
     box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
@@ -543,6 +221,7 @@ h2 {
       0 0 white, 0 0 white, 0 0 white;
   }
 }
+
 @-ms-keyframes bang {
   from {
     box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
@@ -556,6 +235,7 @@ h2 {
       0 0 white, 0 0 white, 0 0 white;
   }
 }
+
 @keyframes bang {
   from {
     box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white,
@@ -569,6 +249,7 @@ h2 {
       0 0 white, 0 0 white, 0 0 white;
   }
 }
+
 @-webkit-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -579,6 +260,7 @@ h2 {
     opacity: 0;
   }
 }
+
 @-moz-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -589,6 +271,7 @@ h2 {
     opacity: 0;
   }
 }
+
 @-o-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -599,6 +282,7 @@ h2 {
     opacity: 0;
   }
 }
+
 @-ms-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -609,6 +293,7 @@ h2 {
     opacity: 0;
   }
 }
+
 @keyframes gravity {
   to {
     transform: translateY(200px);
@@ -619,6 +304,7 @@ h2 {
     opacity: 0;
   }
 }
+
 @-webkit-keyframes position {
   0%,
   19.9% {
@@ -650,6 +336,7 @@ h2 {
     margin-left: 80%;
   }
 }
+
 @-moz-keyframes position {
   0%,
   19.9% {
@@ -681,6 +368,7 @@ h2 {
     margin-left: 80%;
   }
 }
+
 @-o-keyframes position {
   0%,
   19.9% {
@@ -712,6 +400,7 @@ h2 {
     margin-left: 80%;
   }
 }
+
 @-ms-keyframes position {
   0%,
   19.9% {
@@ -743,6 +432,7 @@ h2 {
     margin-left: 80%;
   }
 }
+
 @keyframes position {
   0%,
   19.9% {
@@ -788,17 +478,6 @@ h2 {
   }
 }
 
-/* Thunder */
-/*.overlay {
-  height: 532px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  opacity: 1;
-  width: 100%;
-  background: no-repeat url($bgThunder);
-  animation: flash 5s linear infinite;
-}*/
 @keyframes flash {
   9% {
     opacity: 0;
@@ -838,141 +517,84 @@ h2 {
   }
 }
 
-/* Responsive */
-$breakpoints: (
-  sm: (
-    min: 300px,
-    max: 675.98px,
-  ),
-  md: (
-    min: 676px,
-    max: 991.98px,
-  ),
-  lg: (
-    min: 992px,
-    max: 1199.98px,
-  ),
-  xl: (
-    min: 1200px,
-    max: 1399.98px,
-  ),
-  xxl: (
-    min: 1400px,
-    max: 2599.98px,
-  ),
-);
 
-@mixin breakpoint($breakpoint, $direction: min) {
-  //check if the supplied breakpoint exists in our breakpoits map
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-values: map-get($breakpoints, $breakpoint);
-    $breakpoint-min: map-get($breakpoint-values, min);
-    $breakpoint-max: map-get($breakpoint-values, max);
+@keyframes zoomInDown {
+  from {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translateY(-1000px) rotate3d(0, 0, 1, -45deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
 
-    //check if we are writing styles for larger or smaller screens
-    @if $direction == min {
-      @media (min-width: $breakpoint-min) {
-        @content;
-      }
-    } @else {
-      @media (max-width: $breakpoint-max) {
-        @content;
-      }
-    }
-
-    // use the custom value if the breakpoint is not part of the pre-defined list
-  } @else {
-    @if $direction == min {
-      @media (min-width: $breakpoint) {
-        @content;
-      }
-    } @else {
-      @media (max-width: $breakpoint) {
-        @content;
-      }
-    }
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translateY(60px) rotate3d(0, 0, 1, -45deg);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
 
-.centered {
-  padding: 1rem;
-
-  @include breakpoint(sm) {
-    width: initial;
-    position: initial;
-    top: initial;
-    left: initial;
-    transform: translate(0, 0);
-    -webkit-transform: none;
-    height: initial;
-    min-height: initial;
-    overflow: hidden;
-    margin: 1rem;
-    padding: 1rem;
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  @include breakpoint(lg) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $bgColor;
-    padding: 1rem;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    width: 500px;
-    height: 880px;
-    min-height: 880px;
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
   }
 }
 
-body[data-second] {
-  @include breakpoint(sm) {
-    animation: none;
-    background: white;
-    height: initial;
-    overflow: hidden;
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
   }
-  @include breakpoint(lg) {
-    background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
   }
 }
 
-body[data-first] {
-  @include breakpoint(sm) {
-    animation: none;
-    background: black;
-    height: initial;
-    overflow: hidden;
-  }
-  @include breakpoint(lg) {
-    background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
-  }
-}
-
-.overlay {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  opacity: 1;
-  width: 100%;
-  background: no-repeat url($bgThunder);
-  animation: flash 5s linear infinite;
-
-  @include breakpoint(sm) {
-    height: 405px;
-    bottom: initial;
-    left: 20%;
-  }
-  @include breakpoint(lg) {
-    height: 550px;
-    bottom: initial;
-    left: 0;
-  }
-}

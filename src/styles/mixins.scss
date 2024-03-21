@@ -1,0 +1,48 @@
+// Mixin to handle responsive breakpoints
+@mixin breakpoint($breakpoint, $direction: min) {
+  // Check if the supplied breakpoint exists in our breakpoints map
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    // Check if we are writing styles for larger or smaller screens
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
+    }
+
+    // Use the custom value if the breakpoint is not part of the pre-defined list
+  } @else {
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+
+// Mixin to declare a font-face with various font sources
+@mixin declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName) {
+  @font-face {
+    font-family: $fontName;
+    src:
+      url($urlSite + $fontPath + $fontNameFile + '.woff') format('woff'),
+      url($urlSite + $fontPath + $fontNameFile + '.eot'),
+      url($urlSite + $fontPath + $fontNameFile + '.eot?#iefix') format('embedded-opentype'),
+      url($urlSite + $fontPath + $fontNameFile + '.ttf') format('truetype'),
+      url($urlSite + $fontPath + $fontNameFile + '.svg') format('svg');
+    font-weight: 100 299;
+    font-style: normal;
+    font-display: swap;
+  }
+}

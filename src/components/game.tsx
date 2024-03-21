@@ -1,79 +1,96 @@
-import { useEffect, useState } from "react";
+// React
+import { useEffect, useState } from 'react'
 
 // Redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 
 // Redux slice
-import {
-  toggle,
-  winner,
-  borderColor,
-  incrementPlayerScore,
-  incrementComputerScore,
-} from "../redux/elementsStates";
+import { toggle, winner, borderColor, incrementPlayerScore, incrementComputerScore } from '../redux/elementsStates'
 
 // Components
-import LightNightButton from "./lightNightButton";
+import LightNightButton from './lightNightButton'
 
 // CSS
-import "../styles/scss/game.scss";
+import '../styles/game.scss'
 
-// Main functions
-const playFunctions = require(".././functions/playFunctions");
+// Libs
+import { play } from '../lib/playLib'
+
+// Objs
+import imgObj from '../../src/objects/imgObj.json'
+import numbersObj from '../../src/objects/numbersObj.json'
 
 // Types
-interface RootState {
-  gameElement: any;
+type RootState = {
+  gameElement: any
 }
 
 // Paths
-const imgPath = process.env.REACT_APP_IMG_PATH;
-const imgNumPath = process.env.REACT_APP_IMG_NUM_PATH;
-
-// Objs
-const imgObj = require("../../src/objects/imgObj.json");
-const numbersObj = require("../../src/objects/numbersObj.json");
+const imgPath = process.env.REACT_APP_IMG_PATH
+const imgNumPath = process.env.REACT_APP_IMG_NUM_PATH
 
 /* PICK */
 const ItemsPick = () => {
-  // States
-  const [hoverItem, setHoverItem] = useState<string>("");
+  const [hoverItem, setHoverItem] = useState<string>('')
 
-  // Redux actions dispatching
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  // Pick
-  const pick = async (pickedItem: string) => {
-    // Play function
-    const players = await playFunctions.play(pickedItem);
+  // Pick an item
+  type PlayersData = {
+    player1: boolean
+    player2: boolean
+    item1: string
+    item2: string
+  }
 
-    // Add 1 to player's score
-    if (players.player1 && !players.player2) {
-      dispatch(incrementPlayerScore());
+  type Pick = (pickedItem: string) => Promise<boolean>
+
+  const pick: Pick = async (pickedItem) => {
+    const players = await play(pickedItem)
+
+    if (isPlayersData(players)) {
+      // The value returned by 'play' is of type 'PlayersData'
+      const { player1, player2, item1, item2 } = players
+
+      // Increment player's score if winning
+      if (player1 && !player2) {
+        dispatch(incrementPlayerScore())
+      }
+
+      // Increment computer's score if winning
+      if (!player1 && player2) {
+        dispatch(incrementComputerScore())
+      }
+
+      // Record winner in Redux
+      dispatch(
+        winner({
+          player: item1,
+          computer: item2,
+          fullObj: players,
+        })
+      )
+
+      // Set replay button
+      dispatch(toggle(true))
+
+      return true
+    } else {
+      // Handle the case where the returned value is not of type 'PlayersData'
+      // Maybe raise an error or do some other processing
+      return false
     }
+  }
 
-    // Add 1 to player's score
-    if (!players.player1 && players.player2) {
-      dispatch(incrementComputerScore());
-    }
+  // Utility function to check if the value is of type 'PlayersData'
+  const isPlayersData = (value: unknown): value is PlayersData => {
+    return typeof value === 'object' && value !== null && 'player1' in value && 'player2' in value && 'item1' in value && 'item2' in value
+  }
 
-    // Record redux
-    dispatch(
-      winner({
-        player: players.item1,
-        computer: players.item2,
-        fullObj: players,
-      })
-    );
-
-    // Set replay button
-    dispatch(toggle(true));
-  };
-
-  // Display popover
+  // Display popover on hover
   const displayPopover = (element: string) => {
-    setHoverItem(element);
-  };
+    setHoverItem(element)
+  }
 
   return (
     <>
@@ -82,12 +99,10 @@ const ItemsPick = () => {
         {/* First row */}
         <div className="first">
           <div className="pulse">
-            {hoverItem === imgObj.scissors.name ? (
-              <span>{hoverItem}</span>
-            ) : null}
+            {hoverItem === imgObj.scissors.name ? <span>{hoverItem}</span> : null}
             <img
               onMouseEnter={() => displayPopover(imgObj.scissors.name)}
-              onMouseLeave={() => displayPopover("")}
+              onMouseLeave={() => displayPopover('')}
               onClick={() => pick(imgObj.scissors.name)}
               src={`${imgPath}${imgObj.scissors.value}`}
               alt={imgObj.scissors.name}
@@ -101,7 +116,7 @@ const ItemsPick = () => {
             {hoverItem === imgObj.paper.name ? <span>{hoverItem}</span> : null}
             <img
               onMouseEnter={() => displayPopover(imgObj.paper.name)}
-              onMouseLeave={() => displayPopover("")}
+              onMouseLeave={() => displayPopover('')}
               onClick={() => pick(imgObj.paper.name)}
               src={`${imgPath}${imgObj.paper.value}`}
               alt={imgObj.paper.name}
@@ -111,7 +126,7 @@ const ItemsPick = () => {
             {hoverItem === imgObj.rock.name ? <span>{hoverItem}</span> : null}
             <img
               onMouseEnter={() => displayPopover(imgObj.rock.name)}
-              onMouseLeave={() => displayPopover("")}
+              onMouseLeave={() => displayPopover('')}
               onClick={() => pick(imgObj.rock.name)}
               src={`${imgPath}${imgObj.rock.value}`}
               alt={imgObj.rock.name}
@@ -125,7 +140,7 @@ const ItemsPick = () => {
             {hoverItem === imgObj.lizard.name ? <span>{hoverItem}</span> : null}
             <img
               onMouseEnter={() => displayPopover(imgObj.lizard.name)}
-              onMouseLeave={() => displayPopover("")}
+              onMouseLeave={() => displayPopover('')}
               onClick={() => pick(imgObj.lizard.name)}
               src={`${imgPath}${imgObj.lizard.value}`}
               alt={imgObj.lizard.name}
@@ -135,7 +150,7 @@ const ItemsPick = () => {
             {hoverItem === imgObj.spock.name ? <span>{hoverItem}</span> : null}
             <img
               onMouseEnter={() => displayPopover(imgObj.spock.name)}
-              onMouseLeave={() => displayPopover("")}
+              onMouseLeave={() => displayPopover('')}
               onClick={() => pick(imgObj.spock.name)}
               src={`${imgPath}${imgObj.spock.value}`}
               alt={imgObj.spock.name}
@@ -144,32 +159,27 @@ const ItemsPick = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 /* BUTTON */
 const ReplayButton = () => {
-  // Redux actions dispatching
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  // Reset
+  // Reset action
   const reset = () => {
     // Set replay button
-    dispatch(toggle(false));
+    dispatch(toggle(false))
     // Set border color
-    dispatch(borderColor("blue"));
-  };
+    dispatch(borderColor('blue'))
+  }
 
   return (
     <div className="replay replayButton">
-      <img
-        onClick={() => reset()}
-        src={`${imgPath}${imgObj.replay.value}`}
-        alt={imgObj.replay.name}
-      />
+      <img onClick={() => reset()} src={`${imgPath}${imgObj.replay.value}`} alt={imgObj.replay.name} />
     </div>
-  );
-};
+  )
+}
 
 /* FIREWORKS */
 const Fireworks = () => {
@@ -181,31 +191,30 @@ const Fireworks = () => {
         <div className="after"></div>
       </div>
     </>
-  );
-};
+  )
+}
 
 /* WINNER */
 const Winner = ({ playerObj }: any) => {
-  // Redux actions dispatching
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     // Set border color div
     if (playerObj.fullObj.player1 && !playerObj.fullObj.player2) {
-      dispatch(borderColor("green"));
+      dispatch(borderColor('green'))
     }
     if (!playerObj.fullObj.player1 && playerObj.fullObj.player2) {
-      dispatch(borderColor("red"));
+      dispatch(borderColor('red'))
     }
-  });
+  })
 
   // Player picked item
-  let str1: any = playerObj.player;
-  let keyStr1: any = imgObj[str1 as keyof typeof imgObj].value;
+  let str1: any = playerObj.player
+  let keyStr1: any = imgObj[str1 as keyof typeof imgObj].value
 
   // Computer picked item
-  let str2: any = playerObj.computer;
-  let keyStr2: any = imgObj[str2 as keyof typeof imgObj].value;
+  let str2: any = playerObj.computer
+  let keyStr2: any = imgObj[str2 as keyof typeof imgObj].value
 
   return (
     <>
@@ -215,11 +224,7 @@ const Winner = ({ playerObj }: any) => {
           <img src={`${imgPath}${keyStr1}`} alt="player" className="tada" />
         </div>
         <div>
-          <img
-            src={`${imgPath}${imgObj.vs.value}`}
-            alt={imgObj.vs.name}
-            className="bounceIn"
-          />
+          <img src={`${imgPath}${imgObj.vs.value}`} alt={imgObj.vs.name} className="bounceIn" />
         </div>
         <div>
           <span>Computer</span>
@@ -231,11 +236,7 @@ const Winner = ({ playerObj }: any) => {
         {playerObj.fullObj.player1 && !playerObj.fullObj.player2 ? (
           <>
             <Fireworks />
-            <img
-              src={`${imgPath}${imgObj.win.value}`}
-              alt={imgObj.win.name}
-              className="zoomInDown"
-            />
+            <img src={`${imgPath}${imgObj.win.value}`} alt={imgObj.win.name} className="zoomInDown" />
           </>
         ) : null}
         {/* Loser */}
@@ -244,25 +245,17 @@ const Winner = ({ playerObj }: any) => {
             {/* Thunder effect */}
             <div id="lightning_hero"></div>
             <div className="overlay"></div>
-            <img
-              src={`${imgPath}${imgObj.lose.value}`}
-              alt={imgObj.lose.name}
-              className="zoomInDown"
-            />
+            <img src={`${imgPath}${imgObj.lose.value}`} alt={imgObj.lose.name} className="zoomInDown" />
           </>
         ) : null}
         {/* Equality */}
         {!playerObj.fullObj.player1 && !playerObj.fullObj.player2 ? (
-          <img
-            src={`${imgPath}${imgObj.equality.value}`}
-            alt={imgObj.equality.name}
-            className="zoomInDown equality"
-          />
+          <img src={`${imgPath}${imgObj.equality.value}`} alt={imgObj.equality.name} className="zoomInDown equality" />
         ) : null}
       </div>
     </>
-  );
-};
+  )
+}
 
 /* RULES */
 const Rules = () => {
@@ -270,9 +263,8 @@ const Rules = () => {
     <div className="rules">
       <h2>Rules</h2>
       <p>
-        Each player picks a variable and reveals it at the same time. The winner
-        is the one who defeats the others. In a tie, the process is repeated
-        until a winner is found.
+        Each player picks a variable and reveals it at the same time. The winner is the one who defeats the others. In a tie, the process is repeated until a
+        winner is found.
       </p>
       <ul>
         <li>Rock crushes Scissors or crushes Lizard</li>
@@ -282,18 +274,14 @@ const Rules = () => {
         <li>Spock vaporizes Rock or smashes Scissors</li>
       </ul>
     </div>
-  );
-};
+  )
+}
 
 /* SCORE */
 const Score = () => {
-  // Read score from redux store
-  const scorePlayerArr: any = useSelector(
-    (state: RootState) => state.gameElement.scorePlayerArr
-  );
-  const scoreComputerArr: any = useSelector(
-    (state: RootState) => state.gameElement.scoreComputerArr
-  );
+  // Read score from Redux store
+  const scorePlayerArr = useSelector((state: RootState) => state.gameElement.scorePlayerArr)
+  const scoreComputerArr = useSelector((state: RootState) => state.gameElement.scoreComputerArr)
 
   return (
     <div className="score">
@@ -303,25 +291,13 @@ const Score = () => {
       <div>
         {/* Player score */}
         {scorePlayerArr.map((element: number, i: number) => {
-          let keyStr: string =
-            numbersObj[element as keyof typeof numbersObj].value;
+          let keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
 
-          return (
-            <img
-              key={i}
-              src={`${imgNumPath}${keyStr}`}
-              alt="number"
-              className="number"
-            />
-          );
+          return <img key={i} src={`${imgNumPath}${keyStr}`} alt="number" className="number" />
         })}
       </div>
       <div>
-        <img
-          src={`${imgPath}${imgObj.versus.value}`}
-          alt={imgObj.versus.name}
-          className="versus"
-        />
+        <img src={`${imgPath}${imgObj.versus.value}`} alt={imgObj.versus.name} className="versus" />
       </div>
       <div>
         <span>Com</span>
@@ -329,22 +305,14 @@ const Score = () => {
       <div>
         {/* Computer score */}
         {scoreComputerArr.map((element: number, i: number) => {
-          let keyStr: string =
-            numbersObj[element as keyof typeof numbersObj].value;
+          let keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
 
-          return (
-            <img
-              key={i}
-              src={`${imgNumPath}${keyStr}`}
-              alt="number"
-              className="number"
-            />
-          );
+          return <img key={i} src={`${imgNumPath}${keyStr}`} alt="number" className="number" />
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
 /* TITLE */
 const Title = ({ buttonState }: any) => {
@@ -353,26 +321,18 @@ const Title = ({ buttonState }: any) => {
       <div className="title">
         <h2>Rock, Paper, Scissors, Lizard, Spock</h2>
         <Score />
-        {!buttonState ? (
-          <p className="pulseAnimation">Pick an item to play</p>
-        ) : null}
+        {!buttonState ? <p className="pulseAnimation">Pick an item to play</p> : null}
       </div>
     </>
-  );
-};
+  )
+}
 
 /* GAME */
 const Game = () => {
-  // Redux data reading
-  const buttonState: any = useSelector(
-    (state: RootState) => state.gameElement.button
-  );
-  const playerObj: any = useSelector(
-    (state: RootState) => state.gameElement.winner
-  );
-  const borderColor1: any = useSelector(
-    (state: RootState) => state.gameElement.borderColor
-  );
+  // Read Redux data
+  const buttonState: any = useSelector((state: RootState) => state.gameElement.button)
+  const playerObj: any = useSelector((state: RootState) => state.gameElement.winner)
+  const borderColor1: any = useSelector((state: RootState) => state.gameElement.borderColor)
 
   return (
     <>
@@ -395,7 +355,7 @@ const Game = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Game;
+export default Game

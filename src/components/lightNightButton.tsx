@@ -8,7 +8,7 @@ import { changeTheme } from "../redux/elementsStates";
 import { Helmet } from "react-helmet";
 
 // CSS
-import "../styles/scss/lightNightButton.scss";
+import "../styles/lightNightButton.scss";
 
 // Types
 interface RootState {
