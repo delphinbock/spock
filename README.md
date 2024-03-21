@@ -1,5 +1,5 @@
-![image](./1.jpg)
-![image](./2.jpg)
+![image](./img/title.jpg)
+![image](./img/game.jpg)
 
 [![GNU License](https://img.shields.io/badge/license-GNU-blue.svg?style=style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 

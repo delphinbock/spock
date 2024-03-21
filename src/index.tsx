@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.scss";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 // Redux
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 
 // Measuring Performance (set of useful metrics that aim to capture the user experience of a web page)
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
 // Redux reducers
-import reducerGame from "./redux/elementsStates";
+import reducerGame from './redux/elementsStates';
+
+import { StrictMode } from 'react';
 
 // Redux store
 const store = configureStore({
@@ -21,12 +21,12 @@ const store = configureStore({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,10 +1,11 @@
-// Components
+// Import des composants
 import Game from "./components/game";
 
-// CSS
-import "./App.scss";
+// Import du CSS
+import "./styles/App.scss";
 
-function App() {
+// Définition du composant App en tant que fonction fléchée
+const App = () => {
   return (
     <div className="App">
       <Game />
@@ -12,4 +13,5 @@ function App() {
   );
 }
 
+// Export du composant App
 export default App;
