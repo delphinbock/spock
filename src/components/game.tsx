@@ -27,7 +27,6 @@ type RootState = {
 
 // Paths
 const imgPath = process.env.REACT_APP_IMG_PATH
-const imgNumPath = process.env.REACT_APP_IMG_NUM_PATH
 
 /* PICK */
 const ItemsPick = () => {
@@ -195,7 +194,7 @@ const Fireworks = () => {
 }
 
 /* WINNER */
-const Winner = ({ playerObj }: any) => {
+const WinDashboard = ({ playerObj }: any) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -231,6 +230,13 @@ const Winner = ({ playerObj }: any) => {
           <img src={`${imgPath}${keyStr2}`} alt="computer" className="tada" />
         </div>
       </div>
+    </>
+  )
+}
+
+const WinWrap = ({ playerObj }: any) => {
+  return (
+    <>
       <div className="win">
         {/* Winner */}
         {playerObj.fullObj.player1 && !playerObj.fullObj.player2 ? (
@@ -243,8 +249,8 @@ const Winner = ({ playerObj }: any) => {
         {!playerObj.fullObj.player1 && playerObj.fullObj.player2 ? (
           <>
             {/* Thunder effect */}
-            <div id="lightning_hero"></div>
             <div className="overlay"></div>
+            {/* You lose image */}
             <img src={`${imgPath}${imgObj.lose.value}`} alt={imgObj.lose.name} className="zoomInDown" />
           </>
         ) : null}
@@ -253,6 +259,15 @@ const Winner = ({ playerObj }: any) => {
           <img src={`${imgPath}${imgObj.equality.value}`} alt={imgObj.equality.name} className="zoomInDown equality" />
         ) : null}
       </div>
+    </>
+  )
+}
+
+const Winner = ({ playerObj }: any) => {
+  return (
+    <>
+      <WinDashboard playerObj={playerObj} />
+      <WinWrap playerObj={playerObj} />
     </>
   )
 }
@@ -293,7 +308,7 @@ const Score = () => {
         {scorePlayerArr.map((element: number, i: number) => {
           let keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
 
-          return <img key={i} src={`${imgNumPath}${keyStr}`} alt="number" className="number" />
+          return <img key={i} src={`${imgPath}${keyStr}`} alt="number" className="number" />
         })}
       </div>
       <div>
@@ -307,7 +322,7 @@ const Score = () => {
         {scoreComputerArr.map((element: number, i: number) => {
           let keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
 
-          return <img key={i} src={`${imgNumPath}${keyStr}`} alt="number" className="number" />
+          return <img key={i} src={`${imgPath}${keyStr}`} alt="number" className="number" />
         })}
       </div>
     </div>
@@ -340,18 +355,25 @@ const Game = () => {
         <div className={`centered ${borderColor1}`}>
           <LightNightButton />
           <Title buttonState={buttonState} />
-          {/* Winners */}
-          {buttonState ? <Winner playerObj={playerObj} /> : null}
 
-          {/* Pick or Reset button */}
-          {!buttonState ? (
-            <>
-              <ItemsPick />
-              <Rules />
-            </>
-          ) : (
-            <ReplayButton />
-          )}
+          {/* Winners dashboard */}
+          {buttonState ? <WinDashboard playerObj={playerObj} /> : null}
+
+          {/* Win wrap */}
+          <div className="winwrap">
+            {/* Winner effects container */}
+            {buttonState ? <WinWrap playerObj={playerObj} /> : null}
+
+            {/* Pick or Reset button */}
+            {!buttonState ? (
+              <>
+                <ItemsPick />
+                <Rules />
+              </>
+            ) : (
+              <ReplayButton />
+            )}
+          </div>
         </div>
       </div>
     </>
