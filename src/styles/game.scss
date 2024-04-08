@@ -4,6 +4,13 @@
 
 @include declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName);
 
+body {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 body[data-first] div.centered {
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0);
@@ -131,11 +138,17 @@ h2 {
   }
 }
 
-.win {
-  min-height: 300px;
+.winwrap {
+  position: relative;
 
-  img {
-    height: 300px;
+  .win {
+    min-height: 300px;
+
+    img {
+      height: 300px;
+      position: relative;
+      z-index: 99;
+    }
   }
 }
 
@@ -158,6 +171,8 @@ h2 {
 }
 
 .replay img {
+  position: relative;
+  z-index: 99;
   cursor: pointer;
   width: 150px;
   animation: pulse 1s infinite;
@@ -312,15 +327,10 @@ h2 {
     -webkit-transform: none;
     height: initial;
     min-height: initial;
-    overflow: hidden;
     margin: 1rem;
     padding: 1rem;
   }
   @include breakpoint(lg) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: $bgColor;
     padding: 1rem;
     -webkit-border-radius: 5px;
@@ -337,7 +347,6 @@ body[data-second] {
     animation: none;
     background: white;
     height: initial;
-    overflow: hidden;
   }
   @include breakpoint(lg) {
     background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
@@ -352,7 +361,6 @@ body[data-first] {
     animation: none;
     background: black;
     height: initial;
-    overflow: hidden;
   }
   @include breakpoint(lg) {
     background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
@@ -364,8 +372,7 @@ body[data-first] {
 
 .overlay {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  z-index: 1;
   opacity: 1;
   width: 100%;
   background: no-repeat url($bgThunder);
