@@ -1,5 +1,5 @@
-![image](./img/title.jpg)
-![image](./img/game.jpg)
+![image](https://c2516u.csb.app/img/title.jpg)  
+![image](https://c2516u.csb.app/img/game.jpg)
 
 [![GNU License](https://img.shields.io/badge/license-GNU-blue.svg?style=style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 
@@ -18,7 +18,7 @@ Each player picks a variable and reveals it at the same time. The winner is the 
 5. Spock vaporizes Rock or smashes Scissors<br />
 
 ## Demo video game
-[![Demo video](./youtube.jpg)](https://youtu.be/hmlQ4bMnuzY)
+[![Demo video](https://c2516u.csb.app/img/youtube.jpg)](https://youtu.be/hmlQ4bMnuzY)
 
 ## Notice
 1. You play against the computer<br />

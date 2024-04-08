@@ -1,8 +1,8 @@
+// react-app.d.ts
 declare module "*.png" {
-  const a: any;
-  export default a;
+  const value: string;
 }
+
 declare module "*.jpg" {
-  const b: any;
-  export default b;
+  const value: string;
 }
