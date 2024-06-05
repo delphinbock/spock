@@ -1,3 +1,4 @@
+// Redux
 import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state
@@ -34,52 +35,55 @@ const initialState = {
   },
 };
 
-// Create the slice
-const gameSlice = createSlice({
-  name: "game",
-  initialState,
+// Initial state and reducers
+export const gameSlice = createSlice({
+  name: "gameReducers",
+  initialState: initialState,
   reducers: {
-    // Non-async reducers
+    // Add your non-async reducers here
     toggle: (state, action) => {
       state.button = action.payload;
     },
-    setWinner: (state, action) => {
+    winner: (state, action) => {
       state.winner = action.payload;
     },
-    setBorderColor: (state, action) => {
+    borderColor: (state, action) => {
       state.borderColor = action.payload;
     },
     changeTheme: (state, action) => {
       if (action.payload === "light") {
-        state.theme.light.active = true;
-        state.theme.dark.active = false;
+        state.theme.light.active = action.payload;
+        state.theme.dark.active = !action.payload;
       } else {
-        state.theme.dark.active = true;
-        state.theme.light.active = false;
+        state.theme.dark.active = action.payload;
+        state.theme.light.active = !action.payload;
       }
     },
     incrementPlayerScore: (state) => {
+      // Increment player's score
       state.scorePlayerNum += 1;
-      state.scorePlayerArr = state.scorePlayerNum.toString().split("");
+
+      // Score string to array
+      const a = state.scorePlayerNum.toString();
+      state.scorePlayerArr = a.split("");
     },
     incrementComputerScore: (state) => {
+      // Increment player's score
       state.scoreComputerNum += 1;
-      state.scoreComputerArr = state.scoreComputerNum.toString().split("");
+
+      // Score string to array
+      const a = state.scoreComputerNum.toString();
+      state.scoreComputerArr = a.split("");
     },
   },
-  extraReducers: (builder) => {
-    // Add cases for async actions here using the builder callback notation
-    // builder.addCase(someAsyncAction.fulfilled, (state, action) => {
-    //   // Handle async action
-    // });
-  },
+  extraReducers: {},
 });
 
-// Export actions and reducer
+// Each case under reducers becomes an action
 export const {
   toggle,
-  setWinner,
-  setBorderColor,
+  winner,
+  borderColor,
   incrementPlayerScore,
   incrementComputerScore,
   changeTheme,
