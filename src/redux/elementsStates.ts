@@ -43,10 +43,10 @@ const gameSlice = createSlice({
     toggle: (state, action) => {
       state.button = action.payload;
     },
-    setWinner: (state, action) => {
+    winner: (state, action) => {
       state.winner = action.payload;
     },
-    setBorderColor: (state, action) => {
+    borderColor: (state, action) => {
       state.borderColor = action.payload;
     },
     changeTheme: (state, action) => {
@@ -78,8 +78,8 @@ const gameSlice = createSlice({
 // Export actions and reducer
 export const {
   toggle,
-  setWinner,
-  setBorderColor,
+  winner,
+  borderColor,
   incrementPlayerScore,
   incrementComputerScore,
   changeTheme,

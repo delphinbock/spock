@@ -10,7 +10,7 @@ import imgObj from '../../src/objects/imgObj.json'
 
 // Constants
 const { replay } = imgObj
-const { REACT_APP_IMG_PATH } = process.env
+const imgPath = import.meta.env.VITE_APP_IMG_PATH
 
 /* BUTTON */
 const ReplayButton: FC = () => {
@@ -23,7 +23,7 @@ const ReplayButton: FC = () => {
 
   return (
     <div className="replay replayButton">
-      <img onClick={reset} src={`${REACT_APP_IMG_PATH}${replay.value}`} alt={replay.name} />
+      <img onClick={reset} src={`${imgPath}${replay.value}`} alt={replay.name} />
     </div>
   )
 }

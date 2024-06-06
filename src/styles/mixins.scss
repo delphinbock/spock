@@ -36,11 +36,11 @@
   @font-face {
     font-family: $fontName;
     src:
-      url($urlSite + $fontPath + $fontNameFile + '.woff') format('woff'),
-      url($urlSite + $fontPath + $fontNameFile + '.eot'),
-      url($urlSite + $fontPath + $fontNameFile + '.eot?#iefix') format('embedded-opentype'),
-      url($urlSite + $fontPath + $fontNameFile + '.ttf') format('truetype'),
-      url($urlSite + $fontPath + $fontNameFile + '.svg') format('svg');
+      url($fontPath + $fontNameFile + '.woff') format('woff'),
+      url($fontPath + $fontNameFile + '.eot'),
+      url($fontPath + $fontNameFile + '.eot?#iefix') format('embedded-opentype'),
+      url($fontPath + $fontNameFile + '.ttf') format('truetype'),
+      url($fontPath + $fontNameFile + '.svg') format('svg');
     font-weight: 100 299;
     font-style: normal;
     font-display: swap;

@@ -2,7 +2,6 @@
   "name": "spock",
   "private": true,
   "version": "2.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,13 +11,16 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "jest": "^29.7.0",
+    "lru-cache": "^10.2.2",
     "postcss": "^8.4.38",
     "prettier": "^3.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
-    "sass": "^1.77.4"
+    "sass": "^1.77.4",
+    "web-vitals": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.65",

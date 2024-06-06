@@ -16,7 +16,7 @@ import { play } from '../lib/playLib'
 
 // Constants
 const { lizard, paper, rock, scissors, spock } = imgObj
-const { REACT_APP_IMG_PATH } = process.env
+const imgPath = import.meta.env.VITE_APP_IMG_PATH
 
 /* PICK */
 const ItemsPick: FC = () => {
@@ -92,7 +92,7 @@ const ItemsPick: FC = () => {
               onMouseEnter={() => displayPopover(scissors.name)}
               onMouseLeave={() => displayPopover('')}
               onClick={() => pick(scissors.name)}
-              src={`${REACT_APP_IMG_PATH}${scissors.value}`}
+              src={`${imgPath}${scissors.value}`}
               alt={scissors.name}
             />
           </div>
@@ -106,7 +106,7 @@ const ItemsPick: FC = () => {
               onMouseEnter={() => displayPopover(paper.name)}
               onMouseLeave={() => displayPopover('')}
               onClick={() => pick(paper.name)}
-              src={`${REACT_APP_IMG_PATH}${paper.value}`}
+              src={`${imgPath}${paper.value}`}
               alt={paper.name}
             />
           </div>
@@ -116,7 +116,7 @@ const ItemsPick: FC = () => {
               onMouseEnter={() => displayPopover(rock.name)}
               onMouseLeave={() => displayPopover('')}
               onClick={() => pick(rock.name)}
-              src={`${REACT_APP_IMG_PATH}${rock.value}`}
+              src={`${imgPath}${rock.value}`}
               alt={rock.name}
             />
           </div>
@@ -130,7 +130,7 @@ const ItemsPick: FC = () => {
               onMouseEnter={() => displayPopover(lizard.name)}
               onMouseLeave={() => displayPopover('')}
               onClick={() => pick(lizard.name)}
-              src={`${REACT_APP_IMG_PATH}${lizard.value}`}
+              src={`${imgPath}${lizard.value}`}
               alt={lizard.name}
             />
           </div>
@@ -140,7 +140,7 @@ const ItemsPick: FC = () => {
               onMouseEnter={() => displayPopover(spock.name)}
               onMouseLeave={() => displayPopover('')}
               onClick={() => pick(spock.name)}
-              src={`${REACT_APP_IMG_PATH}${spock.value}`}
+              src={`${imgPath}${spock.value}`}
               alt={spock.name}
             />
           </div>

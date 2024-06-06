@@ -12,7 +12,7 @@ import Fireworks from './fireworks'
 
 // Constants
 const { win, lose, equality } = imgObj
-const { REACT_APP_IMG_PATH } = process.env
+const imgPath = import.meta.env.VITE_APP_IMG_PATH
 
 const WinWrap: FC<WinWrapProps> = ({ playerObj }) => {
   // Default constants
@@ -24,7 +24,7 @@ const WinWrap: FC<WinWrapProps> = ({ playerObj }) => {
       {player1 && !player2 && (
         <>
           <Fireworks />
-          <img src={`${REACT_APP_IMG_PATH}${win.value}`} alt={win.name} className="zoomInDown" />
+          <img src={`${imgPath}${win.value}`} alt={win.name} className="zoomInDown" />
         </>
       )}
       {/* Loser */}
@@ -33,11 +33,11 @@ const WinWrap: FC<WinWrapProps> = ({ playerObj }) => {
           {/* Thunder effect */}
           <div className="overlay"></div>
           {/* You lose image */}
-          <img src={`${REACT_APP_IMG_PATH}${lose.value}`} alt={lose.name} className="zoomInDown" />
+          <img src={`${imgPath}${lose.value}`} alt={lose.name} className="zoomInDown" />
         </>
       )}
       {/* Equality */}
-      {!player1 && !player2 && <img src={`${REACT_APP_IMG_PATH}${equality.value}`} alt={equality.name} className="zoomInDown equality" />}
+      {!player1 && !player2 && <img src={`${imgPath}${equality.value}`} alt={equality.name} className="zoomInDown equality" />}
     </div>
   )
 }
