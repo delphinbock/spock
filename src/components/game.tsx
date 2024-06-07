@@ -17,7 +17,7 @@ import ReplayButton from './replaybutton'
 import '../styles/game.scss'
 
 // Types
-import { PlayerObject, RootState } from '../types/main'
+import { PlayerObject, RootState } from '../types/mainType'
 
 /* GAME */
 const Game: FC = () => {

@@ -1,0 +1,14 @@
+{
+  "scissors": { "name": "scissors", "value": "scissors" },
+  "paper": { "name": "paper", "value": "paper" },
+  "rock": { "name": "rock", "value": "rock" },
+  "lizard": { "name": "lizard", "value": "lizard" },
+  "spock": { "name": "spock", "value": "spock" },
+  "replay": { "name": "replay", "value": "replay" },
+  "vs": { "name": "vs", "value": "vs" },
+  "win": { "name": "win", "value": "win" },
+  "lose": { "name": "lose", "value": "lose" },
+  "equality": { "name": "equality", "value": "equality" },
+  "thunder": { "name": "thunder", "value": "thunder" },
+  "versus": { "name": "versus", "value": "versus" }
+}

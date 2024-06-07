@@ -2,10 +2,10 @@
 import { FC } from 'react'
 
 // Types
-import { WinWrapProps } from '../types/main'
+import { WinWrapProps } from '../types/mainType'
 
 // Obj
-import imgObj from '../../src/objects/imgObj.json'
+import imgObj from '../../src/objs/imgObj.json'
 
 // Component
 import Fireworks from './fireworks'

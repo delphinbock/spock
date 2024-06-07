@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { toggle, borderColor } from '../redux/elementsStates'
 
 // Obj
-import imgObj from '../../src/objects/imgObj.json'
+import imgObj from '../../src/objs/imgObj.json'
 
 // Constants
 const { replay } = imgObj

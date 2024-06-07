@@ -6,10 +6,10 @@ import { useDispatch } from 'react-redux'
 import { borderColor } from '../redux/elementsStates'
 
 // Types
-import { PlayerObject } from '../types/main'
+import { PlayerObject } from '../types/mainType'
 
 // Obj
-import imgObj from '../../src/objects/imgObj.json'
+import imgObj from '../../src/objs/imgObj.json'
 
 // Constants
 const { vs } = imgObj

@@ -2,8 +2,8 @@
 import { FC } from 'react'
 
 // Obj
-import imgObj from '../../src/objects/imgObj.json'
-import numbersObj from '../../src/objects/numbersObj.json'
+import imgObj from '../../src/objs/imgObj.json'
+import numbersObj from '../../src/objs/numbersObj.json'
 
 // Component
 import Score from './score'

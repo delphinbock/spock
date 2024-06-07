@@ -4,20 +4,11 @@ import { useEffect, useState, memo, Suspense, FC, useCallback, useMemo } from 'r
 // Redux
 import { useSelector } from 'react-redux'
 
-// Pu elements in cache package
-import { LRUCache } from 'lru-cache'
+// Main methods
+import { loadImage } from '../../src/lib/mainLib'
 
 // Types
-import { RootState, ScoreProps } from '../types/main'
-
-// Constants
-const imgPath = import.meta.env.VITE_APP_IMG_PATH
-
-// Create LRU cache instance
-const imageCache = new LRUCache<string, string>({
-  max: 50, // Maximum number of items in the cache
-  ttl: 1000 * 60 * 5, // Time to live in milliseconds (e.g., 5 minutes)
-})
+import { RootState, ScoreProps } from '../types/mainType'
 
 // Memoized Image Component
 const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr: string }) => {
@@ -25,36 +16,42 @@ const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr:
   const [src, setSrc] = useState('')
 
   // Load base64 image
-  const loadImage = useCallback(async () => {
+  const fetchImage = useCallback(async () => {
     try {
-      // Check cache first
-      if (imageCache.has(keyStr)) {
-        setSrc(imageCache.get(keyStr) as string)
-        return
-      }
-
-      // fetch base64 image
-      const response = await fetch(`/img/${keyStr}.base64`)
-      const base64Image = await response.text()
-
-      // Cache the fetched image
-      imageCache.set(keyStr, base64Image)
-
-      // Set state
+      const base64Image = await loadImage({ keyStr })
       setSrc(base64Image)
-    } catch (error) {
-      console.error(':( Error fetching image:', error)
+    } catch {
       setSrc('')
     }
   }, [keyStr])
 
   // Side effects
   useEffect(() => {
-    loadImage()
-  }, [loadImage, keyStr, keyId])
+    fetchImage()
+  }, [fetchImage])
 
   return <img key={`${keyId}_${keyStr}`} src={src} alt={keyStr} className="number" />
 })
+
+// VS Image Component
+const VSImageComponent = ({ value }: { value: string }) => {
+  const [base64Src, setBase64Src] = useState('')
+
+  const fetchImage = useCallback(async () => {
+    try {
+      const base64Image = await loadImage({ keyStr: value })
+      setBase64Src(base64Image)
+    } catch {
+      setBase64Src('')
+    }
+  }, [value])
+
+  useEffect(() => {
+    fetchImage()
+  }, [fetchImage])
+
+  return <img src={base64Src} alt="VS" className="versus" />
+}
 
 /* SCORE */
 const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
@@ -94,7 +91,9 @@ const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
       </div>
       {/* VS image */}
       <div>
-        <img src={`${imgPath}${versus.value}`} alt={versus.name} className="versus" />
+        <Suspense fallback={<div>Loading...</div>}>
+          <VSImageComponent value={versus.value} />
+        </Suspense>
       </div>
       {/* Computer side image score */}
       <div>
