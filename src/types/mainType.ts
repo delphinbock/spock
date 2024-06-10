@@ -1,8 +1,3 @@
-// Types
-type RootState = {
-  gameElement: any
-}
-
 type PlayersData = {
   player1: boolean
   player2: boolean
@@ -87,8 +82,25 @@ interface LoadImageProps {
 
 type LoadImage = (props: LoadImageProps) => Promise<string>;
 
+// Root state
+type RootState = {
+  gameElement: {
+    theme: Theme
+  }
+}
+
+// Theme
+type Theme = {
+  light: {
+    active: boolean
+  }
+  dark: {
+    active: boolean
+  }
+}
+
+
 export type {
-  RootState,
   PlayersData,
   PlayerObject,
   WinWrapProps,
@@ -96,5 +108,7 @@ export type {
   Play,
   Comparison,
   LoadImage,
-  HandleGameResult
+  HandleGameResult,
+  RootState,
+  Theme
 }

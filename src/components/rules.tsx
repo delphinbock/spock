@@ -1,11 +1,11 @@
 // React
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 /* RULES */
-const Rules: FC = () => {
+const Rules: FC = memo(() => {
   return (
     <div className="rules">
-      <h2>Rules</h2>
+      <h2 aria-label="Game Rules">Rules</h2>
       <p>
         Each player picks a variable and reveals it at the same time. The winner is the one who defeats the others. In a tie, the process is repeated until a
         winner is found.
@@ -19,6 +19,6 @@ const Rules: FC = () => {
       </ul>
     </div>
   )
-}
+})
 
 export default Rules

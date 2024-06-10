@@ -1,5 +1,5 @@
 // React
-import { FC, memo, useCallback, useEffect, useState, Fragment } from 'react'
+import { FC, memo, useCallback, useEffect, useState } from 'react'
 
 // Redux
 import { useDispatch } from 'react-redux'
@@ -66,7 +66,7 @@ const ItemsPick: FC = memo(() => {
     [dispatch]
   )
 
-  // Function to display popover on item hover
+  // Display popover on item hover
   const displayPopover = useCallback((element: string) => {
     setHoverItem(element)
   }, [])
@@ -115,7 +115,7 @@ const ItemsPick: FC = memo(() => {
   }, [])
 
   return (
-    <Fragment>
+    <>
       {/* Items List */}
       <div className="list">
         {/* First row */}
@@ -185,7 +185,7 @@ const ItemsPick: FC = memo(() => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   )
 })
 

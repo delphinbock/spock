@@ -67,7 +67,7 @@ const gameSlice = createSlice({
       state.scoreComputerArr = state.scoreComputerNum.toString().split("");
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: () => {
     // Add cases for async actions here using the builder callback notation
     // builder.addCase(someAsyncAction.fulfilled, (state, action) => {
     //   // Handle async action
