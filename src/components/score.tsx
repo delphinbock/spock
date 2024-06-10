@@ -64,7 +64,7 @@ const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
 
   const memoizedPlayerScoreComponents = useMemo(
     () =>
-      scorePlayerArr.map((element: number, i: string) => {
+      scorePlayerArr.map((element, i) => {
         const keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
         return <MemoizedImageComponent key={`${i}_${keyStr}`} keyId={`${i}_${keyStr}`} keyStr={keyStr} />
       }),
@@ -73,7 +73,7 @@ const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
 
   const memoizedComputerScoreComponents = useMemo(
     () =>
-      scoreComputerArr.map((element: number, i: string) => {
+      scoreComputerArr.map((element, i) => {
         const keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
         return <MemoizedImageComponent key={`${i}_${keyStr}`} keyId={`${i}_${keyStr}`} keyStr={keyStr} />
       }),

@@ -85,7 +85,12 @@ type LoadImage = (props: LoadImageProps) => Promise<string>;
 // Root state
 type RootState = {
   gameElement: {
-    theme: Theme
+    theme: Theme;
+    button: boolean;
+    winner: PlayerObject | null;
+    borderColor: string;
+    scorePlayerArr: number[];
+    scoreComputerArr: number[];
   }
 }
 
