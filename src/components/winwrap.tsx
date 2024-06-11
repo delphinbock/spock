@@ -14,7 +14,7 @@ import Fireworks from './fireworks'
 import { loadImage } from '../lib/mainLib'
 
 // Constants
-const { win, lose, equality } = imgObj
+const { win, lose, equality, thunder } = imgObj
 
 const WinWrap: FC<WinWrapProps> = memo(({ playerObj }) => {
   // States
@@ -26,7 +26,7 @@ const WinWrap: FC<WinWrapProps> = memo(({ playerObj }) => {
   // Load images as base64
   useEffect(() => {
     const loadImages = async () => {
-      const imageKeys = [lose, win, equality]
+      const imageKeys = [lose, win, equality, thunder]
       const images = await Promise.all(
         imageKeys.map(async (key) => {
           const base64Image = await loadImage({ keyStr: key.value })
@@ -44,16 +44,18 @@ const WinWrap: FC<WinWrapProps> = memo(({ playerObj }) => {
       {player1 && !player2 && (
         <>
           <Fireworks />
-          <img src={images[win.value]} alt={win.name} className="zoomInDown" loading="lazy" />
+          <img src={images[win.value]} alt={win.name} className="zoomInDown resultImg" loading="lazy" />
         </>
       )}
       {/* Loser */}
       {!player1 && player2 && (
         <>
           {/* Thunder effect */}
-          <div className="overlay"></div>
+          <div className="overlay">
+            <img src={images[thunder.value]} alt={thunder.name} loading="lazy" />
+          </div>
           {/* You lose image */}
-          <img src={images[lose.value]} alt={lose.name} className="zoomInDown" loading="lazy" />
+          <img src={images[lose.value]} alt={lose.name} className="zoomInDown resultImg" loading="lazy" />
         </>
       )}
       {/* Equality */}

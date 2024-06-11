@@ -144,7 +144,7 @@ h2 {
   .win {
     min-height: 300px;
 
-    img {
+    .resultImg {
       height: 300px;
       position: relative;
       z-index: 99;
@@ -340,17 +340,20 @@ body[data-first] {
   z-index: 1;
   opacity: 1;
   width: 100%;
-  background: no-repeat url("/img/thunder.base64");
+  left: 0;
+  bottom: initial;
   animation: flash 5s linear infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
   @include breakpoint(sm) {
     height: 405px;
-    bottom: initial;
-    left: 20%;
   }
-  @include breakpoint(lg) {
+
+  @include breakpoint(md) {
     height: 550px;
-    bottom: initial;
-    left: 0;
   }
 }

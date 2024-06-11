@@ -1,20 +1,13 @@
 // Base URL for assets
 $urlSite: 'http://localhost:3000';
 
-// Path for images
+// Images
 $imgPath: '/img/';
 
-// Path for fonts
+// Fonts
 $fontPath: '/fonts/';
-
-// Font file name
 $fontNameFile: 'spaceranger';
-
-// Font name
 $fontName: 'Space Ranger';
-
-// Background image path for thunder
-$bgThunder: "#{$imgPath}thunder.base64";
 
 // Background color
 $bgColor: white;
@@ -22,7 +15,7 @@ $bgColor: white;
 // Width for image items
 $imgItemsWidth: 6rem;
 
-// Breakpoints for responsive design
+// Breakpoints
 $breakpoints: (
   sm: (
     min: 300px,
