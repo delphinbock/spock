@@ -1,20 +1,20 @@
 // Base URL for assets
-$urlSite: "http://localhost:3000";
+$urlSite: 'http://localhost:3000';
 
 // Path for images
-$imgPath: "/img/";
+$imgPath: '/img/';
 
 // Path for fonts
-$fontPath: "/fonts/";
+$fontPath: '/fonts/';
 
 // Font file name
-$fontNameFile: "spaceranger";
+$fontNameFile: 'spaceranger';
 
 // Font name
-$fontName: "Space Ranger";
+$fontName: 'Space Ranger';
 
 // Background image path for thunder
-$bgThunder: $urlSite + $imgPath + "thunder.png";
+$bgThunder: "#{$imgPath}thunder.png";
 
 // Background color
 $bgColor: white;

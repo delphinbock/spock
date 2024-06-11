@@ -1,8 +1,7 @@
-// React
-import { FC } from 'react'
+import { memo, FC } from 'react'
 
 /* FIREWORKS */
-const Fireworks: FC = () => {
+const Fireworks: FC = memo(() => {
   return (
     <>
       {/* Fireworks animation */}
@@ -12,6 +11,6 @@ const Fireworks: FC = () => {
       </div>
     </>
   )
-}
+})
 
 export default Fireworks

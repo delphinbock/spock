@@ -200,22 +200,15 @@ h2 {
 
 /* CSS EFFECT ANIMATION */
 .zoomInDown {
-  -webkit-animation-name: zoomInDown;
   animation-name: zoomInDown;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
 .bounceIn {
-  -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
-  -webkit-animation-duration: 0.75s;
   animation-duration: 0.75s;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
@@ -278,22 +271,6 @@ h2 {
     189px 70.33333px #00ffc8,
     -18px -383.66667px #00ff33,
     100px -6.66667px #ff008c;
-  -moz-animation:
-    1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards,
-    5s position linear infinite backwards;
-  -webkit-animation:
-    1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards,
-    5s position linear infinite backwards;
-  -o-animation:
-    1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards,
-    5s position linear infinite backwards;
-  -ms-animation:
-    1s bang ease-out infinite backwards,
-    1s gravity ease-in infinite backwards,
-    5s position linear infinite backwards;
   animation:
     1s bang ease-out infinite backwards,
     1s gravity ease-in infinite backwards,
@@ -301,15 +278,7 @@ h2 {
 }
 
 .pyro > .after {
-  -moz-animation-delay: 1.25s, 1.25s, 1.25s;
-  -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
-  -o-animation-delay: 1.25s, 1.25s, 1.25s;
-  -ms-animation-delay: 1.25s, 1.25s, 1.25s;
   animation-delay: 1.25s, 1.25s, 1.25s;
-  -moz-animation-duration: 1.25s, 1.25s, 6.25s;
-  -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
-  -o-animation-duration: 1.25s, 1.25s, 6.25s;
-  -ms-animation-duration: 1.25s, 1.25s, 6.25s;
   animation-duration: 1.25s, 1.25s, 6.25s;
 }
 
@@ -324,21 +293,17 @@ h2 {
     top: initial;
     left: initial;
     transform: translate(0, 0);
-    -webkit-transform: none;
     height: initial;
     min-height: initial;
     margin: 1rem;
     padding: 1rem;
   }
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     background-color: $bgColor;
     padding: 1rem;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     width: 500px;
-    height: 880px;
-    min-height: 880px;
+    min-height: 960px;
   }
 }
 
@@ -348,7 +313,7 @@ body[data-second] {
     background: white;
     height: initial;
   }
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     background: linear-gradient(-45deg, #ffffff, #3cb7ff, #ffffff, #55adff);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -362,7 +327,7 @@ body[data-first] {
     background: black;
     height: initial;
   }
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     background: linear-gradient(-45deg, #000000, #0071b3, #000000, #006cd1);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;

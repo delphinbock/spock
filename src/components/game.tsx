@@ -1,5 +1,5 @@
 // React
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 // Redux
 import { useSelector } from 'react-redux'
@@ -17,10 +17,10 @@ import ReplayButton from './replaybutton'
 import '../styles/game.scss'
 
 // Types
-import { PlayerObject, RootState } from '../types/main'
+import { PlayerObject, RootState } from '../types/mainType'
 
 /* GAME */
-const Game: FC = () => {
+const Game: FC = memo(() => {
   // Get button state, player object, and border color from Redux store
   const buttonState: boolean = useSelector((state: RootState) => state.gameElement.button)
   const playerObj: PlayerObject | null = useSelector((state: RootState) => state.gameElement.winner)
@@ -55,6 +55,6 @@ const Game: FC = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Game

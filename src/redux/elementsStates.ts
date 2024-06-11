@@ -1,4 +1,3 @@
-// Redux
 import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state
@@ -35,12 +34,12 @@ const initialState = {
   },
 };
 
-// Initial state and reducers
-export const gameSlice = createSlice({
-  name: "gameReducers",
-  initialState: initialState,
+// Create the slice
+const gameSlice = createSlice({
+  name: "game",
+  initialState,
   reducers: {
-    // Add your non-async reducers here
+    // Non-async reducers
     toggle: (state, action) => {
       state.button = action.payload;
     },
@@ -52,34 +51,31 @@ export const gameSlice = createSlice({
     },
     changeTheme: (state, action) => {
       if (action.payload === "light") {
-        state.theme.light.active = action.payload;
-        state.theme.dark.active = !action.payload;
+        state.theme.light.active = true;
+        state.theme.dark.active = false;
       } else {
-        state.theme.dark.active = action.payload;
-        state.theme.light.active = !action.payload;
+        state.theme.dark.active = true;
+        state.theme.light.active = false;
       }
     },
     incrementPlayerScore: (state) => {
-      // Increment player's score
       state.scorePlayerNum += 1;
-
-      // Score string to array
-      const a = state.scorePlayerNum.toString();
-      state.scorePlayerArr = a.split("");
+      state.scorePlayerArr = state.scorePlayerNum.toString().split("");
     },
     incrementComputerScore: (state) => {
-      // Increment player's score
       state.scoreComputerNum += 1;
-
-      // Score string to array
-      const a = state.scoreComputerNum.toString();
-      state.scoreComputerArr = a.split("");
+      state.scoreComputerArr = state.scoreComputerNum.toString().split("");
     },
   },
-  extraReducers: {},
+  extraReducers: () => {
+    // Add cases for async actions here using the builder callback notation
+    // builder.addCase(someAsyncAction.fulfilled, (state, action) => {
+    //   // Handle async action
+    // });
+  },
 });
 
-// Each case under reducers becomes an action
+// Export actions and reducer
 export const {
   toggle,
   winner,

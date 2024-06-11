@@ -1,8 +1,8 @@
 // Import des composants
-import Game from "./components/game";
+import Game from './components/game'
 
 // Import du CSS
-import "./styles/App.scss";
+import './styles/App.scss'
 
 // Définition du composant App en tant que fonction fléchée
 const App = () => {
@@ -10,8 +10,8 @@ const App = () => {
     <div className="App">
       <Game />
     </div>
-  );
+  )
 }
 
 // Export du composant App
-export default App;
+export default App
