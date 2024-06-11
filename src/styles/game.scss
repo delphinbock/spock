@@ -340,7 +340,7 @@ body[data-first] {
   z-index: 1;
   opacity: 1;
   width: 100%;
-  background: no-repeat url($bgThunder);
+  background: no-repeat url("/img/thunder.base64");
   animation: flash 5s linear infinite;
 
   @include breakpoint(sm) {

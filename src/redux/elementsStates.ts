@@ -70,7 +70,7 @@ const gameSlice = createSlice({
   extraReducers: () => {
     // Add cases for async actions here using the builder callback notation
     // builder.addCase(someAsyncAction.fulfilled, (state, action) => {
-    //   // Handle async action
+    // Handle async action
     // });
   },
 });
