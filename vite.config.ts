@@ -7,4 +7,7 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.ts',
   },
+  server: {
+    port: 3001,
+  },
 });
