@@ -66,7 +66,6 @@ const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
     () =>
       scorePlayerArr.map((element, i) => {
         const keyStr = numbersObj[element as unknown as keyof typeof numbersObj].value
-        console.log(keyStr)
         return <MemoizedImageComponent key={`${i}_${keyStr}`} keyId={`${i}_${keyStr}`} keyStr={keyStr} />
       }),
     [scorePlayerArr, numbersObj]

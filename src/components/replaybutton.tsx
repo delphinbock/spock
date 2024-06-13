@@ -10,7 +10,6 @@ import imgObj from '../../src/objs/imgObj.json'
 
 // Constants
 const { replay } = imgObj
-//const imgPath = import.meta.env.VITE_APP_IMG_PATH
 
 // Libs
 import { loadImage } from '../lib/mainLib'

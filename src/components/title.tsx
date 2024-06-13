@@ -9,7 +9,7 @@ import numbersObj from '../../src/objs/numbersObj.json'
 import Score from './score'
 
 /* TITLE */
-const Title: FC<{ buttonState: boolean }> = memo(({ buttonState }) => (
+const Title: FC<{ buttonState?: boolean }> = memo(({ buttonState }) => (
   <div className="title">
     <h2>Rock, Paper, Scissors, Lizard, Spock</h2>
     <Score imgObj={imgObj} numbersObj={numbersObj} />
