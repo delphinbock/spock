@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "types": ["node"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "tests"],
+  "include": ["src", "tests", "jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "typeRoots": ["node_modules/@types"]
 }

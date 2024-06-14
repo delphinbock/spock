@@ -23,12 +23,13 @@ const LightNightButton = () => {
 
   // Change the color theme
   const toggleTheme = () => {
-    dispatch(changeTheme(theme.light.active ? 'dark' : 'light'))
+    const activeTheme = theme?.dark?.active ?? false
+    dispatch(changeTheme(activeTheme ? 'light' : 'dark'))
   }
 
   return (
     <>
-      {theme.dark.active ? (
+      {theme?.dark?.active ? (
         <Helmet>
           <body data-first="true" />
         </Helmet>

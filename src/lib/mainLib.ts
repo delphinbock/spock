@@ -2,14 +2,14 @@
 // @ts-ignore
 import React from 'react';
 
+// Cache system NPM
+import { LRUCache } from 'lru-cache';
+
 // Axios
 import axios from 'axios';
 
 // Types
 import { LoadImage } from "../types/mainType";
-
-// Cache system NPM
-import { LRUCache } from 'lru-cache';
 
 // Create LRU cache instance
 export const imageCache = new LRUCache<string, string>({
@@ -30,14 +30,14 @@ const loadImage: LoadImage = async ({ keyStr }) => {
     // Fetch base64 image using Axios
     const path = `/img/${keyStr}.base64`
     const response = await axios.get(path);
-    const base64Image = response.data;
+    const base64Image = response?.data;
 
     // Cache the fetched image
     imageCache.set(keyStr, base64Image);
 
     return base64Image;
   } catch (error) {
-    console.error(':( Error fetching image:', error);
+    console.error(':( Error fetching image: ', error);
     throw error;
   }
 };

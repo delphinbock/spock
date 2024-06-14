@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="6.228">
+  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:44:22" time="3.91" tests="1">
+    <testcase classname="App Component :) Renders the App component" name="App Component :) Renders the App component" time="0.144">
+    </testcase>
+  </testsuite>
+  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:44:26" time="0.25" tests="1">
+    <testcase classname="App Component Renders the Redux App component" name="App Component Renders the Redux App component" time="0.032">
+    </testcase>
+  </testsuite>
+  <testsuite name="Game Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:44:22" time="5.28" tests="1">
+    <testcase classname="Game Component should render correctly with a winner" name="Game Component should render correctly with a winner" time="0.123">
+    </testcase>
+  </testsuite>
+</testsuites>

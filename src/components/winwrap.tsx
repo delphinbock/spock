@@ -21,7 +21,7 @@ const WinWrap: FC<WinWrapProps> = memo(({ playerObj }) => {
   const [images, setImages] = useState<{ [key: string]: string }>({})
 
   // Default constants
-  const { player1, player2 } = playerObj.fullObj
+  const { player1 = '', player2 = '' } = playerObj.fullObj || {}
 
   // Load images as base64
   useEffect(() => {

@@ -45,6 +45,7 @@
     "eslint": "^9.4.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "jest-junit": "^16.0.0",
     "jest-transform-stub": "^2.0.0",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",

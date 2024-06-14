@@ -24,7 +24,7 @@ const WinDashboard: FC<{ playerObj: PlayerObject }> = memo(({ playerObj }) => {
 
   // Default constants
   const { player, computer } = playerObj
-  const { player1, player2 } = playerObj.fullObj
+  const { player1 = '', player2 = '' } = playerObj.fullObj || {}
 
   // Redux
   const dispatch = useDispatch()
@@ -35,10 +35,10 @@ const WinDashboard: FC<{ playerObj: PlayerObject }> = memo(({ playerObj }) => {
   }, [dispatch, player1, player2])
 
   // Player picked item
-  const keyStr1: string = imgObj[player as keyof typeof imgObj].value
+  const keyStr1: string = (player && imgObj[player as keyof typeof imgObj]?.value) ?? ''
 
   // Computer picked item
-  const keyStr2: string = imgObj[computer as keyof typeof imgObj].value
+  const keyStr2: string = (computer && imgObj[computer as keyof typeof imgObj]?.value) ?? ''
 
   // Load images as base64
   useEffect(() => {
