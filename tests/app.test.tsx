@@ -3,9 +3,9 @@ import React from 'react'
 import { render, act, RenderResult } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import axios from 'axios'
-import store from '../src/redux/store'
-import App from '../src/components/5_pages/App'
-import { loadImage } from '../src/libs/mainLib'
+import store from '@redux/store'
+import App from '@pages/App'
+import { loadImage } from '@libs/mainLib'
 
 jest.mock('axios')
 

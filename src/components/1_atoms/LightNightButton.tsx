@@ -39,10 +39,9 @@ const LightNightButton = () => {
         </Helmet>
       )}
       <div className="lightNightButton">
-        <div onClick={() => toggleTheme()} className="button-check" id="button-check">
-          <input type="checkbox" className="checkbox" />
-          <span className="switch-btn"></span>
-          <span className="layer"></span>
+        <div onClick={() => toggleTheme()} className="lightNightButton__buttonCheck">
+          <input type="checkbox" className="lightNightButton__buttonCheck--checkbox" />
+          <span className="lightNightButton__buttonCheck--switch-btn"></span>
         </div>
       </div>
     </>

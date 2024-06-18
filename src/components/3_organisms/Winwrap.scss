@@ -1,0 +1,51 @@
+@import '@base/constants.scss';
+
+.win {
+  min-height: 300px;
+
+  &__resultImg {
+    height: 300px;
+    position: relative;
+    z-index: 99;
+
+    &--zoomInDown {
+      animation-name: zoomInDown;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    width: 100%;
+    left: 0;
+    bottom: initial;
+    animation: flash 5s linear infinite;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-width: 576px) {
+      height: 405px;
+    }
+
+    @media (min-width: 768px) {
+      height: 550px;
+    }
+  }
+
+  &__equality {
+    height: 177px !important;
+    margin-top: 67px;
+
+    &--zoomInDown {
+      animation-name: zoomInDown;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+  }
+}

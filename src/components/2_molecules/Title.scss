@@ -1,0 +1,9 @@
+.title {
+  font-family: 'Space Ranger', sans-serif;
+  font-size: 1.5rem;
+
+  &--pulseAnimation {
+    animation: pulse 1.5s infinite;
+    animation-timing-function: linear;
+  }
+}

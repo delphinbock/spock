@@ -14,6 +14,9 @@ import imgObj from '@objs/imgObj.json'
 // Lib
 import { loadImage } from '@libs/mainLib'
 
+// Style
+import '@organisms/Windashboard.scss'
+
 // Constants
 const { vs } = imgObj
 
@@ -66,14 +69,14 @@ const WinDashboard: FC<{ playerObj: PlayerObject }> = memo(({ playerObj }) => {
 
   return (
     <div className="winner">
-      <div>
+      <div className="winner__player">
         <span>Player</span>
         <img src={images[keyStr1]} alt="player" className="tada" loading="lazy" />
       </div>
-      <div>
+      <div className="winner__vs">
         <img src={images[vs.value]} alt={vs.name} className="bounceIn" loading="lazy" />
       </div>
-      <div>
+      <div className="winner__computer">
         <span>Computer</span>
         <img src={images[keyStr2]} alt="computer" className="tada" loading="lazy" />
       </div>

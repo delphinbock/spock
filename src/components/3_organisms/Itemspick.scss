@@ -1,0 +1,59 @@
+// Constants
+@import '@base/constants.scss';
+
+.list {
+  list-style: none;
+  text-align: left;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__row--first,
+  &__row--second,
+  &__row--third {
+    & .list__item {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+
+      span {
+        display: block;
+        text-align: center;
+        position: absolute;
+        z-index: 999;
+        margin-left: -54px;
+        margin-top: 20px;
+        background-color: gray;
+        color: white;
+        padding: 0.2rem;
+        border-radius: 5px;
+      }
+
+      &--pulse:hover {
+        animation: pulse 1s infinite;
+        animation-timing-function: linear;
+      }
+    }
+  }
+
+  &__row--second .list__item:nth-child(2) {
+    margin-left: 35%;
+  }
+
+  &__row--third .list__item:nth-child(2) {
+    margin-left: 12%;
+  }
+
+  &__row--third .list__item {
+    margin-top: 30px;
+  }
+
+  & img {
+    width: $imgItemsWidth;
+  }
+}

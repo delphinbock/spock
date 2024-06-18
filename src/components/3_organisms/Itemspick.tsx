@@ -15,6 +15,9 @@ import { PlayersData, HandleGameResult } from '@typage/mainType'
 import { play } from '@libs/playLib'
 import { loadImage } from '@libs/mainLib'
 
+// Style
+import '@organisms/Itemspick.scss'
+
 // Constants
 const { lizard, paper, rock, scissors, spock } = imgObj
 
@@ -119,8 +122,8 @@ const ItemsPick: FC = memo(() => {
       {/* Items List */}
       <div className="list">
         {/* First row */}
-        <div className="first">
-          <div className="pulse">
+        <div className="list__row list__row--first">
+          <div className="list__item">
             {hoverItem === scissors.name && <span>{hoverItem}</span>}
             <img
               onMouseEnter={() => handleItemHover(scissors.name)}
@@ -129,13 +132,14 @@ const ItemsPick: FC = memo(() => {
               src={images[scissors.value]}
               alt={scissors.name}
               loading="lazy"
+              className="list__item--pulse"
             />
           </div>
         </div>
 
         {/* Second row */}
-        <div className="second">
-          <div className="pulse">
+        <div className="list__row list__row--second">
+          <div className="list__item">
             {hoverItem === paper.name && <span>{hoverItem}</span>}
             <img
               onMouseEnter={() => handleItemHover(paper.name)}
@@ -144,9 +148,10 @@ const ItemsPick: FC = memo(() => {
               src={images[paper.value]}
               alt={paper.name}
               loading="lazy"
+              className="list__item--pulse"
             />
           </div>
-          <div className="pulse">
+          <div className="list__item">
             {hoverItem === rock.name && <span>{hoverItem}</span>}
             <img
               onMouseEnter={() => handleItemHover(rock.name)}
@@ -155,13 +160,14 @@ const ItemsPick: FC = memo(() => {
               src={images[rock.value]}
               alt={rock.name}
               loading="lazy"
+              className="list__item--pulse"
             />
           </div>
         </div>
 
         {/* Third row */}
-        <div className="third">
-          <div className="pulse">
+        <div className="list__row list__row--third">
+          <div className="list__item">
             {hoverItem === lizard.name && <span>{hoverItem}</span>}
             <img
               onMouseEnter={() => handleItemHover(lizard.name)}
@@ -170,9 +176,10 @@ const ItemsPick: FC = memo(() => {
               src={images[lizard.value]}
               alt={lizard.name}
               loading="lazy"
+              className="list__item--pulse"
             />
           </div>
-          <div className="pulse">
+          <div className="list__item">
             {hoverItem === spock.name && <span>{hoverItem}</span>}
             <img
               onMouseEnter={() => handleItemHover(spock.name)}
@@ -181,6 +188,7 @@ const ItemsPick: FC = memo(() => {
               src={images[spock.value]}
               alt={spock.name}
               loading="lazy"
+              className="list__item--pulse"
             />
           </div>
         </div>

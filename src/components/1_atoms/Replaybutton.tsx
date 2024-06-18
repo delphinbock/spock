@@ -14,6 +14,9 @@ const { replay } = imgObj
 // Libs
 import { loadImage } from '@/libs/mainLib'
 
+// Style
+import '@atoms/ReplayButton.scss'
+
 /* BUTTON */
 const ReplayButton: FC = memo(() => {
   // redux
@@ -42,11 +45,7 @@ const ReplayButton: FC = memo(() => {
     loadImages()
   }, [])
 
-  return (
-    <div className="replay replayButton">
-      <img onClick={reset} src={images[replay.value]} alt={replay.name} />
-    </div>
-  )
+  return <img className="replay replay--pulse" onClick={reset} src={images[replay.value]} alt={replay.name} />
 })
 
 export default ReplayButton

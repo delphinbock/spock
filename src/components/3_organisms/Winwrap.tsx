@@ -13,6 +13,9 @@ import Fireworks from '@molecules/Fireworks'
 // Libs
 import { loadImage } from '@libs/mainLib'
 
+// Style
+import '@organisms/Winwrap.scss'
+
 // Constants
 const { win, lose, equality, thunder } = imgObj
 
@@ -44,22 +47,22 @@ const WinWrap: FC<WinWrapProps> = memo(({ playerObj }) => {
       {player1 && !player2 && (
         <>
           <Fireworks />
-          <img src={images[win.value]} alt={win.name} className="zoomInDown resultImg" loading="lazy" />
+          <img src={images[win.value]} alt={win.name} className="win__resultImg win__resultImg--zoomInDown" loading="lazy" />
         </>
       )}
       {/* Loser */}
       {!player1 && player2 && (
         <>
           {/* Thunder effect */}
-          <div className="overlay">
+          <div className="win__overlay">
             <img src={images[thunder.value]} alt={thunder.name} loading="lazy" />
           </div>
           {/* You lose image */}
-          <img src={images[lose.value]} alt={lose.name} className="zoomInDown resultImg" loading="lazy" />
+          <img src={images[lose.value]} alt={lose.name} className="win__resultImg win__resultImg--zoomInDown" loading="lazy" />
         </>
       )}
       {/* Equality */}
-      {!player1 && !player2 && <img src={images[equality.value]} alt={equality.name} className="zoomInDown equality" loading="lazy" />}
+      {!player1 && !player2 && <img src={images[equality.value]} alt={equality.name} className="win__equality win__equality--zoomInDown" loading="lazy" />}
     </div>
   )
 })

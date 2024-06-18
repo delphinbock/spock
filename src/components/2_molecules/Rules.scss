@@ -1,0 +1,22 @@
+/* Rules.scss */
+
+.rules {
+  text-align: left;
+
+  &__title {
+    font-family: 'Space Ranger', sans-serif;
+    font-size: 1.5rem;
+  }
+
+  &__description {
+    text-align: left;
+  }
+
+  &__list {
+    text-align: left;
+  }
+
+  &__item {
+    text-align: left;
+  }
+}

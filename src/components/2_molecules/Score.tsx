@@ -10,6 +10,9 @@ import { loadImage } from '@libs/mainLib'
 // Types
 import { RootState, ScoreProps } from '@typage/mainType'
 
+// Style
+import '@molecules/Score.scss'
+
 // Memoized Image Component
 const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr: string }) => {
   // States
@@ -30,7 +33,7 @@ const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr:
     fetchImage()
   }, [fetchImage])
 
-  return <img key={`${keyId}_${keyStr}`} src={src} alt={keyStr} className="number" />
+  return <img key={`${keyId}_${keyStr}`} src={src} alt={keyStr} className="score__number" />
 })
 
 // VS Image Component
@@ -50,7 +53,7 @@ const VSImageComponent = ({ value }: { value: string }) => {
     fetchImage()
   }, [fetchImage])
 
-  return <img src={base64Src} alt="VS" className="versus" />
+  return <img src={base64Src} alt="VS" className="score__versus" />
 }
 
 /* SCORE */

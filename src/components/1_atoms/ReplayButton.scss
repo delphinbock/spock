@@ -1,0 +1,11 @@
+.replay {
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+  width: 150px;
+
+  &--pulse:hover {
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;
+  }
+}

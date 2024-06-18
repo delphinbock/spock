@@ -17,27 +17,28 @@ import ReplayButton from '@atoms/Replaybutton'
 import '@templates/Game.scss'
 
 // Types
-import { PlayerObject, RootState } from '../../types/mainType'
+import { PlayerObject, RootState } from '@typage/mainType'
 
 /* GAME */
 const Game: FC = memo(() => {
   // Get button state, player object, and border color from Redux store
   const buttonState: boolean = useSelector((state: RootState) => state.gameElement.button)
   const playerObj: PlayerObject | null = useSelector((state: RootState) => state.gameElement.winner)
-  const borderColor1: string = useSelector((state: RootState) => state.gameElement.borderColor)
+  const borderColor: string = useSelector((state: RootState) => state.gameElement.borderColor)
 
   return (
-    <div className="container">
-      <div className={`centered ${borderColor1}`}>
+    <div className="mainGameContainer">
+      <div className={`mainGameContainer__centered mainGameContainer__centered--${borderColor}`}>
         {/* Dark or light theme switch button */}
         <LightNightButton />
+
         {/* Game title */}
         <Title buttonState={buttonState} />
 
         {/* Winner dashboard if there is a winner */}
         {buttonState && playerObj && <WinDashboard playerObj={playerObj} />}
 
-        <div className="winwrap">
+        <div>
           {/* If game is in progress */}
           {buttonState ? (
             // Display WinWrap component if player object is defined

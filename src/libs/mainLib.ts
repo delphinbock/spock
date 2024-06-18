@@ -9,7 +9,7 @@ import { LRUCache } from 'lru-cache';
 import axios from 'axios';
 
 // Types
-import { LoadImage } from "../types/mainType";
+import { LoadImage } from "@typage/mainType";
 
 // Create LRU cache instance
 export const imageCache = new LRUCache<string, string>({

@@ -1,5 +1,5 @@
 // Types
-import { Comparison, Play } from "../types/mainType"
+import { Comparison, Play } from "@typage/mainType"
 
 // Function to compare two items and determine the winner
 const comparison: Comparison = async ({ item1, item2 }) => {
