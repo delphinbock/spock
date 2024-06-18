@@ -29,12 +29,12 @@
       }
 
       &:checked ~ .lightNightButton__buttonCheck--switch-btn {
-        background-color: #383838;
+        background-color: $nightButtonBgColor;
       }
     }
 
     &--switch-btn {
-      background-color: #88d9ff;
+      background-color: $lightButtonBgColor;
       z-index: 2;
       position: absolute;
       top: 0;

@@ -1,7 +1,7 @@
 import { memo, FC } from 'react'
 
 // Style
-import '@atoms/LightNightButton.scss'
+import '@molecules/Fireworks.scss'
 
 /* FIREWORKS */
 const Fireworks: FC = memo(() => {
