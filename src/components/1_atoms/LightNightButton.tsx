@@ -2,16 +2,16 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 // Redux slice
-import { changeTheme } from '../redux/elementsStates'
+import { changeTheme } from '@/redux/elementsStates'
 
 // NPM
 import { Helmet } from 'react-helmet'
 
 // CSS
-import '../styles/lightNightButton.scss'
+import '@atoms/LightNightButton.scss'
 
 // Types
-import { RootState, Theme } from '../types/mainType'
+import { RootState, Theme } from '@/types/mainType'
 
 // Button component
 const LightNightButton = () => {

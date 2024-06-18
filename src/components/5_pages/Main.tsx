@@ -3,14 +3,14 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 // Component
-import App from './components/app'
+import App from './App'
 
 // Styles
-import '../src/styles/main.scss'
+import '@pages/Main.scss'
 
 // Redux
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import store from '@/redux/store'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,8 +1,8 @@
 // Components
-import Game from './game'
+import Game from '@templates/Game'
 
 // Styles
-import '../styles/app.scss'
+import '@pages/App.scss'
 
 const App = () => {
   return <Game />

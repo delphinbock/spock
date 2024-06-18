@@ -4,14 +4,14 @@ import { render, act, RenderResult } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import axios from 'axios'
 import store from '../src/redux/store'
-import App from '../src/components/app'
-import { loadImage } from '../src/lib/mainLib' // Assumant que c'est là où votre fonction loadImage est définie
+import App from '../src/components/5_pages/App'
+import { loadImage } from '../src/libs/mainLib'
 
 jest.mock('axios')
 
 describe('App Component', () => {
   let getByText: (text: string) => HTMLElement
-  let renderResult: RenderResult | undefined // Déclarer renderResult comme étant potentiellement undefined
+  let renderResult: RenderResult | undefined
 
   beforeEach(() => {
     // Clear any previous mock implementation for axios

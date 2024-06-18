@@ -5,10 +5,10 @@ import { useEffect, useState, memo, Suspense, FC, useCallback, useMemo } from 'r
 import { useSelector } from 'react-redux'
 
 // Main methods
-import { loadImage } from '../../src/lib/mainLib'
+import { loadImage } from '@libs/mainLib'
 
 // Types
-import { RootState, ScoreProps } from '../types/mainType'
+import { RootState, ScoreProps } from '@typage/mainType'
 
 // Memoized Image Component
 const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr: string }) => {

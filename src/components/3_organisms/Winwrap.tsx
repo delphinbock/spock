@@ -2,16 +2,16 @@
 import { FC, memo, useEffect, useState } from 'react'
 
 // Types
-import { WinWrapProps } from '../types/mainType'
+import { WinWrapProps } from '@typage/mainType'
 
 // Obj
-import imgObj from '../../src/objs/imgObj.json'
+import imgObj from '@objs/imgObj.json'
 
 // Component
-import Fireworks from './fireworks'
+import Fireworks from '@molecules/Fireworks'
 
 // Libs
-import { loadImage } from '../lib/mainLib'
+import { loadImage } from '@libs/mainLib'
 
 // Constants
 const { win, lose, equality, thunder } = imgObj

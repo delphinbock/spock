@@ -1,6 +1,6 @@
-@import 'constants';
-@import 'animations';
-@import 'mixins';
+@import '../0_base/constants.scss';
+@import '../0_base/animations';
+@import '../0_base/mixins';
 
 @include declare-font-face($urlSite, $fontPath, $fontNameFile, $fontName);
 

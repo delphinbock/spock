@@ -3,17 +3,17 @@ import { FC, memo, useCallback, useEffect, useState } from 'react'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { toggle, winner, incrementPlayerScore, incrementComputerScore } from '../redux/elementsStates'
+import { toggle, winner, incrementPlayerScore, incrementComputerScore } from '@redux/elementsStates'
 
 // Obj
-import imgObj from '../../src/objs/imgObj.json'
+import imgObj from '@objs/imgObj.json'
 
 // Types
-import { PlayersData, HandleGameResult } from '../types/mainType'
+import { PlayersData, HandleGameResult } from '@typage/mainType'
 
 // Libs
-import { play } from '../lib/playLib'
-import { loadImage } from '../lib/mainLib'
+import { play } from '@libs/playLib'
+import { loadImage } from '@libs/mainLib'
 
 // Constants
 const { lizard, paper, rock, scissors, spock } = imgObj

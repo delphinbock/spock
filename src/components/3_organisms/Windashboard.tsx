@@ -3,16 +3,16 @@ import { FC, memo, useEffect, useState } from 'react'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { borderColor } from '../redux/elementsStates'
+import { borderColor } from '@redux/elementsStates'
 
 // Types
-import { PlayerObject } from '../types/mainType'
+import { PlayerObject } from '@typage/mainType'
 
 // Obj
-import imgObj from '../../src/objs/imgObj.json'
+import imgObj from '@objs/imgObj.json'
 
 // Lib
-import { loadImage } from '../lib/mainLib'
+import { loadImage } from '@libs/mainLib'
 
 // Constants
 const { vs } = imgObj

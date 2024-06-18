@@ -5,19 +5,19 @@ import { FC, memo } from 'react'
 import { useSelector } from 'react-redux'
 
 // Components
-import LightNightButton from './lightNightButton'
-import Title from './title'
-import WinDashboard from './windashboard'
-import WinWrap from './winwrap'
-import ItemsPick from './itemspick'
-import Rules from './rules'
-import ReplayButton from './replaybutton'
+import LightNightButton from '@atoms/LightNightButton'
+import Title from '@molecules/Title'
+import WinDashboard from '@organisms/Windashboard'
+import WinWrap from '@organisms/Winwrap'
+import ItemsPick from '@organisms/Itemspick'
+import Rules from '@molecules/Rules'
+import ReplayButton from '@atoms/Replaybutton'
 
 // Style
-import '../styles/game.scss'
+import '@templates/Game.scss'
 
 // Types
-import { PlayerObject, RootState } from '../types/mainType'
+import { PlayerObject, RootState } from '../../types/mainType'
 
 /* GAME */
 const Game: FC = memo(() => {

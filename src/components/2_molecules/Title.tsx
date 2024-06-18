@@ -2,11 +2,11 @@
 import { FC, memo } from 'react'
 
 // Obj
-import imgObj from '../../src/objs/imgObj.json'
-import numbersObj from '../../src/objs/numbersObj.json'
+import imgObj from '@objs/imgObj.json'
+import numbersObj from '@objs/numbersObj.json'
 
 // Component
-import Score from './score'
+import Score from './Score'
 
 /* TITLE */
 const Title: FC<{ buttonState?: boolean }> = memo(({ buttonState }) => (

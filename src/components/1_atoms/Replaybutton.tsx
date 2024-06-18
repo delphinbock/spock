@@ -3,16 +3,16 @@ import { FC, memo, useCallback, useEffect, useState } from 'react'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import { toggle, borderColor } from '../redux/elementsStates'
+import { toggle, borderColor } from '@/redux/elementsStates'
 
 // Obj
-import imgObj from '../../src/objs/imgObj.json'
+import imgObj from '@/objs/imgObj.json'
 
 // Constants
 const { replay } = imgObj
 
 // Libs
-import { loadImage } from '../lib/mainLib'
+import { loadImage } from '@/libs/mainLib'
 
 /* BUTTON */
 const ReplayButton: FC = memo(() => {
