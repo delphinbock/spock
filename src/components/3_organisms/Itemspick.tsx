@@ -15,9 +15,6 @@ import { PlayersData, HandleGameResult } from '@typage/mainType'
 import { play } from '@libs/playLib'
 import { loadImage } from '@libs/mainLib'
 
-// Style
-import '@organisms/Itemspick.scss'
-
 // Constants
 const { lizard, paper, rock, scissors, spock } = imgObj
 

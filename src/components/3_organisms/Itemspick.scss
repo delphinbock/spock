@@ -1,9 +1,8 @@
-// Constants
-@import '@base/constants.scss';
-
 .list {
   list-style: none;
   text-align: left;
+  display: block;
+  min-height: 346px;
 
   &__row {
     display: flex;
@@ -28,8 +27,8 @@
         z-index: 999;
         margin-left: -54px;
         margin-top: 20px;
-        background-color: gray;
-        color: white;
+        background-color: $itemspickBgColor;
+        color: $itemspickColor;
         padding: 0.2rem;
         border-radius: 5px;
       }

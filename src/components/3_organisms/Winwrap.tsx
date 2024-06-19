@@ -13,9 +13,6 @@ import Fireworks from '@molecules/Fireworks'
 // Libs
 import { loadImage } from '@libs/mainLib'
 
-// Style
-import '@organisms/Winwrap.scss'
-
 // Constants
 const { win, lose, equality, thunder } = imgObj
 

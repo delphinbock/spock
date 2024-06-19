@@ -14,9 +14,6 @@ import imgObj from '@objs/imgObj.json'
 // Lib
 import { loadImage } from '@libs/mainLib'
 
-// Style
-import '@organisms/Windashboard.scss'
-
 // Constants
 const { vs } = imgObj
 

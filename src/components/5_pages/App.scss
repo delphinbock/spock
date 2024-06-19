@@ -1,14 +1,54 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
-  box-sizing: border-box;
 
   body {
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 3rem;
+    padding: 0;
     margin: 0;
-    text-align: center;
     width: 100%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    &[data-first] .mainGameContainer__centered {
+      color: $bodyDataFirstColor;
+      background-color: $bodyDataFirstBgColor;
+    }
+
+    &[data-second] .mainGameContainer__centered {
+      color: $bodyDataSecondColor;
+      background-color: $bodyDataSecondBgColor;
+    }
+
+    @include breakpoint(md) {
+      &[data-first] {
+        background: linear-gradient(
+          -45deg,
+          $bodyDataFirstBgColorMdBlack,
+          $bodyDataFirstBgColorMdBlue1,
+          $bodyDataFirstBgColorMdBlack,
+          $bodyDataFirstBgColorMdBlue2
+        );
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+      }
+
+      &[data-second] {
+        background: linear-gradient(
+          -45deg,
+          $bodyDataSecondBgColorMdWhite,
+          $bodyDataSecondBgColorMdBlue1,
+          $bodyDataSecondBgColorMdWhite,
+          $bodyDataSecondBgColorMdBlue2
+        );
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+      }
+    }
   }
 }

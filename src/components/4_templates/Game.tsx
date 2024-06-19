@@ -13,9 +13,6 @@ import ItemsPick from '@organisms/Itemspick'
 import Rules from '@molecules/Rules'
 import ReplayButton from '@atoms/Replaybutton'
 
-// Style
-import '@templates/Game.scss'
-
 // Types
 import { PlayerObject, RootState } from '@typage/mainType'
 

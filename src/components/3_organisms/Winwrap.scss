@@ -2,6 +2,7 @@
 
 .win {
   min-height: 300px;
+  text-align: center;
 
   &__resultImg {
     height: 300px;
@@ -39,7 +40,7 @@
   }
 
   &__equality {
-    height: 177px !important;
+    height: 177px;
     margin-top: 67px;
 
     &--zoomInDown {

@@ -1,8 +1,5 @@
 import { memo, FC } from 'react'
 
-// Style
-import '@molecules/Fireworks.scss'
-
 /* FIREWORKS */
 const Fireworks: FC = memo(() => {
   return (

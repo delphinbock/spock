@@ -45,7 +45,11 @@ const ReplayButton: FC = memo(() => {
     loadImages()
   }, [])
 
-  return <img className="replay replay--pulse" onClick={reset} src={images[replay.value]} alt={replay.name} />
+  return (
+    <div className="replayWrap">
+      <img className="replayWrap__replay replayWrap__replay--pulse" onClick={reset} src={images[replay.value]} alt={replay.name} />
+    </div>
+  )
 })
 
 export default ReplayButton

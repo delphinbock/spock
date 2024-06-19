@@ -25,7 +25,7 @@
       }
 
       &:checked + .lightNightButton__buttonCheck--switch-btn:after {
-        right: 4px;
+        right: 10px;
       }
 
       &:checked ~ .lightNightButton__buttonCheck--switch-btn {
@@ -45,8 +45,8 @@
       &:before,
       &:after {
         position: absolute;
-        top: 4px;
-        left: 4px;
+        top: 3px;
+        left: 10px;
         width: 9px;
         height: 2px;
         font-size: 15px;

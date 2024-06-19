@@ -1,13 +1,9 @@
-@import '@base/constants.scss';
-@import '@base/mixins';
-
 .mainGameContainer {
   display: flex;
   justify-content: center;
 
   &__centered {
     padding: 1rem;
-    position: relative; /* Assure que les éléments positionnés absolument soient relativement positionnés à ce conteneur */
 
     @include breakpoint(sm) {
       width: initial;
@@ -22,7 +18,7 @@
     }
 
     @include breakpoint(md) {
-      background-color: $bgColor; // Utilisation de la variable définie dans constants.scss
+      background-color: $gameBgColor;
       padding: 1rem;
       border-radius: 5px;
       width: 500px;
@@ -30,15 +26,15 @@
     }
 
     &--blue {
-      border: 0.2rem solid rgb(0, 132, 255);
+      border: 0.2rem solid $gameBorderColor;
     }
 
     &--green {
-      border: 0.2rem solid rgb(14, 214, 64);
+      border: 0.2rem solid $gameBorderColorWin;
     }
 
     &--red {
-      border: 0.2rem solid rgb(255, 0, 0);
+      border: 0.2rem solid $gameBorderColorLose;
     }
   }
 }

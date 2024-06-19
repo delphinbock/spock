@@ -10,9 +10,6 @@ import { loadImage } from '@libs/mainLib'
 // Types
 import { RootState, ScoreProps } from '@typage/mainType'
 
-// Style
-import '@molecules/Score.scss'
-
 // Memoized Image Component
 const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr: string }) => {
   // States

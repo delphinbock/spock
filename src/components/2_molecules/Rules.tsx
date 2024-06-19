@@ -1,9 +1,6 @@
 // React
 import { FC, memo } from 'react'
 
-// Style
-import '@molecules/Rules.scss'
-
 /* RULES */
 const Rules: FC = memo(() => {
   return (
@@ -16,11 +13,11 @@ const Rules: FC = memo(() => {
         winner is found.
       </p>
       <ul className="rules__list">
-        <li className="rules__item">Rock crushes Scissors or crushes Lizard</li>
-        <li className="rules__item">Scissors cuts Paper or decapitates Lizard</li>
-        <li className="rules__item">Paper covers Rock or disproves Spock</li>
-        <li className="rules__item">Lizard eats Paper or poisons Spock</li>
-        <li className="rules__item">Spock vaporizes Rock or smashes Scissors</li>
+        <li>Rock crushes Scissors or crushes Lizard</li>
+        <li>Scissors cuts Paper or decapitates Lizard</li>
+        <li>Paper covers Rock or disproves Spock</li>
+        <li>Lizard eats Paper or poisons Spock</li>
+        <li>Spock vaporizes Rock or smashes Scissors</li>
       </ul>
     </div>
   )

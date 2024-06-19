@@ -1,11 +1,17 @@
-.replay {
-  position: relative;
-  z-index: 99;
-  cursor: pointer;
-  width: 150px;
+.replayWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &--pulse:hover {
-    animation: pulse 1s infinite;
-    animation-timing-function: linear;
+  &__replay {
+    width: 150px;
+    position: relative;
+    z-index: 99;
+    cursor: pointer;
+
+    &--pulse:hover {
+      animation: pulse 1s infinite;
+      animation-timing-function: linear;
+    }
   }
 }

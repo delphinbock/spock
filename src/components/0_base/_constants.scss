@@ -4,14 +4,6 @@ $urlSite: 'http://localhost:3000';
 // Images
 $imgPath: '/img/';
 
-// Fonts
-$fontPath: '/fonts/';
-$fontNameFile: 'spaceranger';
-$fontName: 'Space Ranger';
-
-// Background color
-$bgColor: white;
-
 // Width for image items
 $imgItemsWidth: 6rem;
 
@@ -31,10 +23,10 @@ $breakpoints: (
   ),
   xl: (
     min: 1200px,
-    max: 1399.98px,
+    max: 1439.98px,
   ),
   xxl: (
-    min: 1400px,
+    min: 1440px,
     max: 2599.98px,
   ),
 );

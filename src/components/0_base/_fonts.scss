@@ -1,0 +1,7 @@
+// Fonts
+$fontsPath: '/fonts/';
+
+// Space Ranger font
+$fontNameFileSpaceRanger: 'spaceranger';
+$fontNameSpaceRanger: 'Space Ranger';
+@include declareFontFace($fontsPath, $fontNameFileSpaceRanger, $fontNameSpaceRanger);

@@ -2,11 +2,11 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
-// Component
-import App from '@pages/App'
-
 // Styles
 import '@pages/Main.scss'
+
+// Component
+import App from '@pages/App'
 
 // Redux
 import { Provider } from 'react-redux'

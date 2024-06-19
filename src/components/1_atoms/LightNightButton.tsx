@@ -7,9 +7,6 @@ import { changeTheme } from '@/redux/elementsStates'
 // NPM
 import { Helmet } from 'react-helmet'
 
-// CSS
-import '@atoms/LightNightButton.scss'
-
 // Types
 import { RootState, Theme } from '@/types/mainType'
 

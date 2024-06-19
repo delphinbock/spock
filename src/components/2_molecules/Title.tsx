@@ -8,9 +8,6 @@ import numbersObj from '@objs/numbersObj.json'
 // Component
 import Score from '@molecules/Score'
 
-// Style
-import '@molecules/Title.scss'
-
 /* TITLE */
 const Title: FC<{ buttonState?: boolean }> = memo(({ buttonState }) => (
   <div className="title">
