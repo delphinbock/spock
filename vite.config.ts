@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
-const __filename = import.meta.url;
-const __dirname = path.dirname(new URL(__filename).pathname);
+const __filename = import.meta.url
+const __dirname = path.dirname(new URL(__filename).pathname)
 
 export default defineConfig({
   plugins: [react()],
@@ -29,4 +29,4 @@ export default defineConfig({
       '@typage': path.resolve(__dirname, './src/types'),
     },
   },
-});
+})
