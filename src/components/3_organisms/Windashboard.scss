@@ -1,0 +1,31 @@
+.winner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+
+  &__player,
+  &__computer {
+    margin: 0 1rem;
+
+    span {
+      display: block;
+      margin-bottom: 1rem;
+      font-family: $fontNameSpaceRanger, sans-serif;
+      font-size: 1.5rem;
+    }
+
+    img {
+      height: 120px;
+    }
+  }
+
+  &__player {
+    width: 170px;
+  }
+
+  &__vs img {
+    width: 50px;
+  }
+}

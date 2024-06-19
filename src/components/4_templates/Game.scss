@@ -1,0 +1,47 @@
+.mainGameContainer {
+  display: flex;
+  justify-content: center;
+
+  &__centered {
+    padding: 1rem;
+
+    @include breakpoint(sm) {
+      width: initial;
+      position: initial;
+      top: initial;
+      left: initial;
+      transform: translate(0, 0);
+      height: initial;
+      min-height: initial;
+      margin: 1rem;
+      padding: 1rem;
+    }
+
+    @include breakpoint(md) {
+      background-color: $gameBgColor;
+      padding: 1rem;
+      border-radius: 5px;
+      width: 500px;
+      min-height: 1024px;
+    }
+
+    &--blue {
+      border: 0.2rem solid $gameBorderColor;
+    }
+
+    &--green {
+      border: 0.2rem solid $gameBorderColorWin;
+    }
+
+    &--red {
+      border: 0.2rem solid $gameBorderColorLose;
+    }
+  }
+}
+
+/* Responsive */
+@include breakpoint(sm) {
+  .mainGameContainer__centered {
+    padding: 1rem;
+  }
+}

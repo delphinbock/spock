@@ -1,0 +1,32 @@
+// Base URL for assets
+$urlSite: 'http://localhost:3000';
+
+// Images
+$imgPath: '/img/';
+
+// Width for image items
+$imgItemsWidth: 6rem;
+
+// Breakpoints
+$breakpoints: (
+  sm: (
+    min: 300px,
+    max: 675.98px,
+  ),
+  md: (
+    min: 676px,
+    max: 991.98px,
+  ),
+  lg: (
+    min: 992px,
+    max: 1199.98px,
+  ),
+  xl: (
+    min: 1200px,
+    max: 1439.98px,
+  ),
+  xxl: (
+    min: 1440px,
+    max: 2599.98px,
+  ),
+);

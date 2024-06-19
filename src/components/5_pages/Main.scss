@@ -1,0 +1,23 @@
+// Base
+@import '@base/_base';
+
+// Atoms components
+@import '@atoms/LightNightButton';
+@import '@atoms/ReplayButton';
+
+// Molecules components
+@import '@molecules/Fireworks';
+@import '@molecules/Rules';
+@import '@molecules/Score';
+@import '@molecules/Title';
+
+// Organisms components
+@import '@organisms/Itemspick';
+@import '@organisms/Windashboard';
+@import '@organisms/Winwrap';
+
+// Templates
+@import '@templates/Game';
+
+// Pages
+@import '@pages/App';

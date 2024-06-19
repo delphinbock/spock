@@ -1,0 +1,70 @@
+.pyro {
+  &__before,
+  &__after {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow:
+      -120px -218.66667px $fireworkBlue1,
+      248px -16.66667px $fireworkGreen1,
+      190px 16.33333px $fireworkBlue2,
+      -113px -308.66667px $fireworkPink1,
+      -109px -287.66667px $fireworkOrange1,
+      -50px -313.66667px $fireworkPink2,
+      226px -31.66667px $fireworkOrange2,
+      180px -351.66667px $fireworkPink3,
+      -12px -338.66667px $fireworkBlue3,
+      220px -388.66667px $fireworkGreen2,
+      -69px -27.66667px $fireworkRed1,
+      -111px -339.66667px $fireworkPurple1,
+      155px -237.66667px $fireworkCyan1,
+      -152px -380.66667px $fireworkCyan2,
+      -50px -37.66667px $fireworkCyan3,
+      -95px -175.66667px $fireworkYellowGreen1,
+      -88px 10.33333px $fireworkBlue4,
+      112px -309.66667px $fireworkBlue5,
+      69px -415.66667px $fireworkPink4,
+      168px -100.66667px $fireworkRed2,
+      -244px 24.33333px $fireworkOrange3,
+      97px -325.66667px $fireworkPink5,
+      -211px -182.66667px $fireworkGreen3,
+      236px -126.66667px $fireworkPurple2,
+      140px -196.66667px $fireworkPurple3,
+      125px -175.66667px $fireworkBlue6,
+      118px -381.66667px $fireworkRed3,
+      144px -111.66667px $fireworkOrange4,
+      36px -78.66667px $fireworkPink6,
+      -63px -196.66667px $fireworkPurple4,
+      -218px -227.66667px $fireworkYellow1,
+      -134px -377.66667px $fireworkPurple5,
+      -36px -412.66667px $fireworkPink7,
+      209px -106.66667px $fireworkCyan4,
+      91px -278.66667px $fireworkBlue7,
+      -22px -191.66667px $fireworkGreen4,
+      139px -392.66667px $fireworkYellowGreen2,
+      56px -2.66667px $fireworkBlue8,
+      -156px -276.66667px $fireworkPurple5,
+      -163px -233.66667px $fireworkPurple6,
+      -238px -346.66667px $fireworkGreen5,
+      62px -363.66667px $fireworkBlue9,
+      244px -170.66667px $fireworkBlue10,
+      224px -142.66667px $fireworkPurple7,
+      141px -208.66667px $fireworkPurple8,
+      211px -285.66667px $fireworkOrange5,
+      181px -128.66667px $fireworkBlue11,
+      90px -123.66667px $fireworkPurple9,
+      189px 70.33333px $fireworkCyan5,
+      -18px -383.66667px $fireworkGreen6,
+      100px -6.66667px $fireworkPink8;
+    animation:
+      1s bang ease-out infinite backwards,
+      1s gravity ease-in infinite backwards,
+      5s position linear infinite backwards;
+  }
+
+  &__after {
+    animation-delay: 1.25s, 1.25s, 1.25s;
+    animation-duration: 1.25s, 1.25s, 6.25s;
+  }
+}

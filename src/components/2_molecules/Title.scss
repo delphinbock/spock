@@ -1,0 +1,10 @@
+.title {
+  font-family: $fontNameSpaceRanger, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+
+  &--pulseAnimation {
+    animation: pulse 1.5s infinite;
+    animation-timing-function: linear;
+  }
+}
