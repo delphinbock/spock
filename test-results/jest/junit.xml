@@ -1,11 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="6.605">
-  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:57:13" time="4.184" tests="1">
-    <testcase classname="App Component :) Renders the App component" name="App Component :) Renders the App component" time="0.127">
+<testsuites name="jest tests" tests="12" failures="1" errors="0" time="6.623">
+  <testsuite name="Rules component" errors="0" failures="0" skipped="0" timestamp="2024-06-21T17:08:38" time="3.364" tests="4">
+    <testcase classname="Rules component renders correctly" name="Rules component renders correctly" time="0.046">
+    </testcase>
+    <testcase classname="Rules component has the correct title" name="Rules component has the correct title" time="0.014">
+    </testcase>
+    <testcase classname="Rules component has the correct description" name="Rules component has the correct description" time="0.007">
+    </testcase>
+    <testcase classname="Rules component has the correct list items" name="Rules component has the correct list items" time="0.012">
     </testcase>
   </testsuite>
-  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:57:13" time="4.269" tests="1">
-    <testcase classname="App Component Renders the Redux App component" name="App Component Renders the Redux App component" time="0.126">
+  <testsuite name="LightNightButton" errors="0" failures="0" skipped="0" timestamp="2024-06-21T17:08:38" time="3.397" tests="3">
+    <testcase classname="LightNightButton renders with light theme" name="LightNightButton renders with light theme" time="0.054">
+    </testcase>
+    <testcase classname="LightNightButton dispatches changeTheme action on button click" name="LightNightButton dispatches changeTheme action on button click" time="0.081">
+    </testcase>
+    <testcase classname="LightNightButton updates body class on theme change" name="LightNightButton updates body class on theme change" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Fireworks component" errors="0" failures="0" skipped="0" timestamp="2024-06-21T17:08:41" time="0.279" tests="2">
+    <testcase classname="Fireworks component renders correctly" name="Fireworks component renders correctly" time="0.014">
+    </testcase>
+    <testcase classname="Fireworks component has the correct CSS classes" name="Fireworks component has the correct CSS classes" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="ReplayButton" errors="0" failures="0" skipped="0" timestamp="2024-06-21T17:08:41" time="0.394" tests="2">
+    <testcase classname="ReplayButton should render ReplayButton and load images" name="ReplayButton should render ReplayButton and load images" time="0.021">
+    </testcase>
+    <testcase classname="ReplayButton should dispatch actions when image is clicked" name="ReplayButton should dispatch actions when image is clicked" time="0.025">
+    </testcase>
+  </testsuite>
+  <testsuite name="Score Component" errors="0" failures="1" skipped="0" timestamp="2024-06-21T17:08:41" time="1.936" tests="1">
+    <testcase classname="Score Component renders player and computer scores correctly" name="Score Component renders player and computer scores correctly" time="0.068">
+      <failure>TypeError: Cannot read properties of undefined (reading &apos;value&apos;)
+    at /home/delphin/workspace/spock/src/components/2_molecules/Score.tsx:78:82
+    at Array.map (&lt;anonymous&gt;)
+    at /home/delphin/workspace/spock/src/components/2_molecules/Score.tsx:77:24
+    at mountMemo (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:16406:19)
+    at Object.useMemo (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:16851:16)
+    at useMemo (/home/delphin/workspace/spock/node_modules/react/cjs/react.development.js:1650:21)
+    at /home/delphin/workspace/spock/src/components/2_molecules/Score.tsx:75:50
+    at renderWithHooks (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:15486:18)
+    at updateFunctionComponent (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:19617:20)
+    at updateSimpleMemoComponent (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:19454:10)
+    at updateMemoComponent (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:19303:14)
+    at beginWork (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:21712:16)
+    at beginWork$1 (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:27465:14)
+    at performUnitOfWork (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:26599:12)
+    at workLoopSync (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+    at renderRootSync (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+    at recoverFromConcurrentError (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:25889:20)
+    at performConcurrentWorkOnRoot (/home/delphin/workspace/spock/node_modules/react-dom/cjs/react-dom.development.js:25789:22)
+    at flushActQueue (/home/delphin/workspace/spock/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/home/delphin/workspace/spock/node_modules/react/cjs/react.development.js:2582:11)
+    at /home/delphin/workspace/spock/node_modules/@testing-library/react/dist/act-compat.js:47:25
+    at renderRoot (/home/delphin/workspace/spock/node_modules/@testing-library/react/dist/pure.js:180:26)
+    at render (/home/delphin/workspace/spock/node_modules/@testing-library/react/dist/pure.js:271:10)
+    at Object.&lt;anonymous&gt; (/home/delphin/workspace/spock/tests/Score.test.tsx:54:47)
+    at Promise.then.completed (/home/delphin/workspace/spock/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/home/delphin/workspace/spock/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/home/delphin/workspace/spock/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/home/delphin/workspace/spock/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/home/delphin/workspace/spock/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/home/delphin/workspace/spock/node_modules/jest-circus/build/run.js:121:9)
+    at run (/home/delphin/workspace/spock/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/home/delphin/workspace/spock/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/home/delphin/workspace/spock/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/home/delphin/workspace/spock/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/home/delphin/workspace/spock/node_modules/jest-runner/build/runTest.js:444:34)
+    at Object.worker (/home/delphin/workspace/spock/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
     </testcase>
   </testsuite>
 </testsuites>

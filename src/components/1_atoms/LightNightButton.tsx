@@ -8,36 +8,24 @@ import { changeTheme } from '@/redux/elementsStates'
 import { Helmet } from 'react-helmet'
 
 // Types
-import { RootState, Theme } from '@/types/mainType'
+import { RootState } from '@/types/mainType'
 
-// Button component
 const LightNightButton = () => {
-  // Read score from redux store
-  const theme: Theme = useSelector((state: RootState) => state.gameElement.theme)
-
-  // Redux actions dispatching
+  const theme = useSelector((state: RootState) => state.game.theme)
   const dispatch = useDispatch()
 
-  // Change the color theme
-  const toggleTheme = () => {
-    const activeTheme = theme?.dark?.active ?? false
-    dispatch(changeTheme(activeTheme ? 'light' : 'dark'))
+  const handleToggleTheme = () => {
+    dispatch(changeTheme())
   }
 
   return (
     <>
-      {theme?.dark?.active ? (
-        <Helmet>
-          <body data-first="true" />
-        </Helmet>
-      ) : (
-        <Helmet>
-          <body data-second="true" />
-        </Helmet>
-      )}
+      <Helmet>
+        <body className={theme === 'dark' ? 'dark' : 'light'} />
+      </Helmet>
       <div className="lightNightButton">
-        <div onClick={() => toggleTheme()} className="lightNightButton__buttonCheck">
-          <input type="checkbox" className="lightNightButton__buttonCheck--checkbox" />
+        <div onClick={handleToggleTheme} className="lightNightButton__buttonCheck">
+          <input type="checkbox" className="lightNightButton__buttonCheck--checkbox" readOnly />
           <span className="lightNightButton__buttonCheck--switch-btn"></span>
         </div>
       </div>

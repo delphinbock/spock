@@ -3,7 +3,7 @@ import gameReducer from "@redux/elementsStates";
 
 const store = configureStore({
     reducer: {
-        gameElement: gameReducer,
+        game: gameReducer,
     },
 });
 

@@ -59,8 +59,9 @@ const Score: FC<ScoreProps> = memo(({ imgObj, numbersObj }) => {
   const { versus } = imgObj
 
   // Selectors
-  const scorePlayerArr = useSelector((state: RootState) => state.gameElement.scorePlayerArr)
-  const scoreComputerArr = useSelector((state: RootState) => state.gameElement.scoreComputerArr)
+  const gameState = useSelector((state: RootState) => state.game)
+  const scorePlayerArr = gameState.scorePlayerArr ? Object.values(gameState.scorePlayerArr) : []
+  const scoreComputerArr = gameState.scoreComputerArr ? Object.values(gameState.scoreComputerArr) : []
 
   const memoizedPlayerScoreComponents = useMemo(
     () =>
