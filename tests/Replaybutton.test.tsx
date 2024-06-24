@@ -1,5 +1,3 @@
-// replayButton.test.tsx
-
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store'

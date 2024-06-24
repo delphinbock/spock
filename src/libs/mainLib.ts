@@ -19,12 +19,14 @@ export const imageCache = new LRUCache<string, string>({
 
 // Fetch base64 image using Axios
 const fetchImage = async (keyStr: string) => {
-  // Images path
-  const path = `/img/${keyStr}.base64`;
-
   try {
+    // Images path
+    const path = `/img/${keyStr}.base64`;
+
+    // Get image
     const response: AxiosResponse<string> = await axios.get(path, {
     });
+
     return response.data;
   } catch (error) {
     console.error(`Error fetching image: ${error}`);
