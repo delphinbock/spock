@@ -13,7 +13,7 @@ import { RootState, ScoreProps } from '@typage/mainType'
 // Memoized Image Component
 const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr: string }) => {
   // States
-  const [src, setSrc] = useState('')
+  const [src, setSrc] = useState('default.base64')
 
   // Load base64 image
   const fetchImage = useCallback(async () => {
@@ -21,7 +21,7 @@ const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr:
       const base64Image = await loadImage({ keyStr })
       setSrc(base64Image)
     } catch {
-      setSrc('')
+      setSrc('default.base64')
     }
   }, [keyStr])
 
@@ -35,14 +35,14 @@ const MemoizedImageComponent = memo(({ keyId, keyStr }: { keyId: string; keyStr:
 
 // VS Image Component
 const VSImageComponent = ({ value }: { value: string }) => {
-  const [base64Src, setBase64Src] = useState('')
+  const [base64Src, setBase64Src] = useState('default.base64')
 
   const fetchImage = useCallback(async () => {
     try {
       const base64Image = await loadImage({ keyStr: value })
       setBase64Src(base64Image)
     } catch {
-      setBase64Src('')
+      setBase64Src('default.base64')
     }
   }, [value])
 

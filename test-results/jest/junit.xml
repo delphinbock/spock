@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" errors="0" time="7.151">
-  <testsuite name="ReplayButton" errors="0" failures="0" skipped="0" timestamp="2024-06-24T16:41:19" time="3.963" tests="2">
-    <testcase classname="ReplayButton should render ReplayButton and load images" name="ReplayButton should render ReplayButton and load images" time="0.038">
-    </testcase>
-    <testcase classname="ReplayButton should dispatch actions when image is clicked" name="ReplayButton should dispatch actions when image is clicked" time="0.014">
+<testsuites name="jest tests" tests="15" failures="0" errors="0" time="7.219">
+  <testsuite name="Title Component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:26" time="3.734" tests="1">
+    <testcase classname="Title Component renders correctly with buttonState true" name="Title Component renders correctly with buttonState true" time="0.057">
     </testcase>
   </testsuite>
-  <testsuite name="LightNightButton" errors="0" failures="0" skipped="0" timestamp="2024-06-24T16:41:19" time="4.111" tests="3">
-    <testcase classname="LightNightButton renders with light theme" name="LightNightButton renders with light theme" time="0.057">
-    </testcase>
-    <testcase classname="LightNightButton dispatches changeTheme action on button click" name="LightNightButton dispatches changeTheme action on button click" time="0.092">
-    </testcase>
-    <testcase classname="LightNightButton updates body class on theme change" name="LightNightButton updates body class on theme change" time="0.016">
+  <testsuite name="WinWrap Component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:26" time="5.316" tests="1">
+    <testcase classname="WinWrap Component renders correctly based on playerObj props" name="WinWrap Component renders correctly based on playerObj props" time="0.05">
     </testcase>
   </testsuite>
-  <testsuite name="Rules component" errors="0" failures="0" skipped="0" timestamp="2024-06-24T16:41:23" time="0.228" tests="4">
-    <testcase classname="Rules component renders correctly" name="Rules component renders correctly" time="0.014">
+  <testsuite name="WinDashboard Component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:31" time="0.327" tests="1">
+    <testcase classname="WinDashboard Component renders correctly and updates border color" name="WinDashboard Component renders correctly and updates border color" time="0.029">
     </testcase>
-    <testcase classname="Rules component has the correct title" name="Rules component has the correct title" time="0.011">
+  </testsuite>
+  <testsuite name="ItemsPick Component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:30" time="1.971" tests="1">
+    <testcase classname="ItemsPick Component renders correctly and handles item clicks" name="ItemsPick Component renders correctly and handles item clicks" time="0.041">
+    </testcase>
+  </testsuite>
+  <testsuite name="ReplayButton" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:32" time="0.276" tests="2">
+    <testcase classname="ReplayButton should render ReplayButton and load images" name="ReplayButton should render ReplayButton and load images" time="0.013">
+    </testcase>
+    <testcase classname="ReplayButton should dispatch actions when image is clicked" name="ReplayButton should dispatch actions when image is clicked" time="0.021">
+    </testcase>
+  </testsuite>
+  <testsuite name="LightNightButton" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:32" time="0.352" tests="3">
+    <testcase classname="LightNightButton renders with light theme" name="LightNightButton renders with light theme" time="0.021">
+    </testcase>
+    <testcase classname="LightNightButton dispatches changeTheme action on button click" name="LightNightButton dispatches changeTheme action on button click" time="0.079">
+    </testcase>
+    <testcase classname="LightNightButton updates body class on theme change" name="LightNightButton updates body class on theme change" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="Rules component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:32" time="0.265" tests="4">
+    <testcase classname="Rules component renders correctly" name="Rules component renders correctly" time="0.02">
+    </testcase>
+    <testcase classname="Rules component has the correct title" name="Rules component has the correct title" time="0.013">
     </testcase>
     <testcase classname="Rules component has the correct description" name="Rules component has the correct description" time="0.008">
     </testcase>
-    <testcase classname="Rules component has the correct list items" name="Rules component has the correct list items" time="0.021">
+    <testcase classname="Rules component has the correct list items" name="Rules component has the correct list items" time="0.01">
     </testcase>
   </testsuite>
-  <testsuite name="Fireworks component" errors="0" failures="0" skipped="0" timestamp="2024-06-24T16:41:23" time="0.202" tests="2">
+  <testsuite name="Fireworks component" errors="0" failures="0" skipped="0" timestamp="2024-06-25T15:39:32" time="0.227" tests="2">
     <testcase classname="Fireworks component renders correctly" name="Fireworks component renders correctly" time="0.012">
     </testcase>
     <testcase classname="Fireworks component has the correct CSS classes" name="Fireworks component has the correct CSS classes" time="0.004">
-    </testcase>
-  </testsuite>
-  <testsuite name="Score Component" errors="0" failures="0" skipped="0" timestamp="2024-06-24T16:41:23" time="1.852" tests="1">
-    <testcase classname="Score Component renders player and computer scores correctly" name="Score Component renders player and computer scores correctly" time="0.023">
     </testcase>
   </testsuite>
 </testsuites>

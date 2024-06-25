@@ -35,12 +35,12 @@ const fetchImage = async (keyStr: string) => {
 }
 
 const loadImage: LoadImage = async ({ keyStr, fallbackImage = '/default.base64' }) => {
-  // Check cache first
-  if (imageCache.has(keyStr)) {
-    return imageCache.get(keyStr)!;
-  }
-
   try {
+    // Check cache first
+    if (imageCache.has(keyStr)) {
+      return imageCache.get(keyStr)!;
+    }
+
     // Image fetch
     const base64Image = await fetchImage(keyStr);
 
