@@ -32,7 +32,9 @@ type ScoreProps = {
   },
   numbersObj: {
     [key: string]: { value: string }
-  }
+  },
+  scorePlayerArr?: number[];
+  scoreComputerArr?: number[];
 }
 
 // Comparison
@@ -78,14 +80,15 @@ type HandleGameResult = (props: HandleGameResultProps) => HandleGameResultData;
 // Load image
 interface LoadImageProps {
   keyStr: string;
+  fallbackImage?: string;
 }
 
 type LoadImage = (props: LoadImageProps) => Promise<string>;
 
 // Root state
 type RootState = {
-  gameElement: {
-    theme: Theme;
+  game: {
+    theme: string;
     button: boolean;
     winner: PlayerObject | null;
     borderColor: string;
@@ -93,17 +96,6 @@ type RootState = {
     scoreComputerArr: number[];
   }
 }
-
-// Theme
-type Theme = {
-  light: {
-    active: boolean
-  }
-  dark: {
-    active: boolean
-  }
-}
-
 
 export type {
   PlayersData,
@@ -115,5 +107,4 @@ export type {
   LoadImage,
   HandleGameResult,
   RootState,
-  Theme
 }

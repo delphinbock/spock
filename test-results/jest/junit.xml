@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="6.605">
-  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:57:13" time="4.184" tests="1">
-    <testcase classname="App Component :) Renders the App component" name="App Component :) Renders the App component" time="0.127">
+<testsuites name="jest tests" tests="16" failures="0" errors="0" time="7.736">
+  <testsuite name="Rules component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:08" time="5.402" tests="4">
+    <testcase classname="Rules component renders correctly" name="Rules component renders correctly" time="0.057">
+    </testcase>
+    <testcase classname="Rules component has the correct title" name="Rules component has the correct title" time="0.02">
+    </testcase>
+    <testcase classname="Rules component has the correct description" name="Rules component has the correct description" time="0.015">
+    </testcase>
+    <testcase classname="Rules component has the correct list items" name="Rules component has the correct list items" time="0.016">
     </testcase>
   </testsuite>
-  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-14T18:57:13" time="4.269" tests="1">
-    <testcase classname="App Component Renders the Redux App component" name="App Component Renders the Redux App component" time="0.126">
+  <testsuite name="App Component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:08" time="5.608" tests="1">
+    <testcase classname="App Component Renders the Redux App component" name="App Component Renders the Redux App component" time="0.115">
+    </testcase>
+  </testsuite>
+  <testsuite name="Fireworks component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:13" time="0.24" tests="2">
+    <testcase classname="Fireworks component renders correctly" name="Fireworks component renders correctly" time="0.008">
+    </testcase>
+    <testcase classname="Fireworks component has the correct CSS classes" name="Fireworks component has the correct CSS classes" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Title Component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.261" tests="1">
+    <testcase classname="Title Component renders correctly with buttonState true" name="Title Component renders correctly with buttonState true" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="LightNightButton" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.417" tests="3">
+    <testcase classname="LightNightButton renders with light theme" name="LightNightButton renders with light theme" time="0.016">
+    </testcase>
+    <testcase classname="LightNightButton dispatches changeTheme action on button click" name="LightNightButton dispatches changeTheme action on button click" time="0.105">
+    </testcase>
+    <testcase classname="LightNightButton updates body class on theme change" name="LightNightButton updates body class on theme change" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="WinWrap Component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.23" tests="1">
+    <testcase classname="WinWrap Component renders correctly based on playerObj props" name="WinWrap Component renders correctly based on playerObj props" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="ReplayButton" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.308" tests="2">
+    <testcase classname="ReplayButton should render ReplayButton and load images" name="ReplayButton should render ReplayButton and load images" time="0.01">
+    </testcase>
+    <testcase classname="ReplayButton should dispatch actions when image is clicked" name="ReplayButton should dispatch actions when image is clicked" time="0.021">
+    </testcase>
+  </testsuite>
+  <testsuite name="ItemsPick Component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.224" tests="1">
+    <testcase classname="ItemsPick Component renders correctly and handles item clicks" name="ItemsPick Component renders correctly and handles item clicks" time="0.021">
+    </testcase>
+  </testsuite>
+  <testsuite name="WinDashboard Component" errors="0" failures="0" skipped="0" timestamp="2024-06-26T12:15:14" time="0.231" tests="1">
+    <testcase classname="WinDashboard Component renders correctly and updates border color" name="WinDashboard Component renders correctly and updates border color" time="0.014">
     </testcase>
   </testsuite>
 </testsuites>

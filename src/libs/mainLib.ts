@@ -6,7 +6,7 @@ import React from 'react';
 import { LRUCache } from 'lru-cache';
 
 // Axios
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 // Types
 import { LoadImage } from "@typage/mainType";
@@ -14,32 +14,44 @@ import { LoadImage } from "@typage/mainType";
 // Create LRU cache instance
 export const imageCache = new LRUCache<string, string>({
   max: 50, // Maximum number of items in the cache
-  ttl: 1000 * 60 * 5, // Time to live in milliseconds (e.g., 5 minutes)
+  ttl: 1000 * 60 * 10, // Time to live in milliseconds (e.g., 10 minutes)
 });
 
-const loadImage: LoadImage = async ({ keyStr }) => {
+// Fetch base64 image using Axios
+const fetchImage = async (keyStr: string) => {
+  try {
+    // Images path
+    const path = `/img/${keyStr}.base64`;
+
+    // Get image
+    const response: AxiosResponse<string> = await axios.get(path, {
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching image: ${error}`);
+    throw error;
+  }
+}
+
+const loadImage: LoadImage = async ({ keyStr, fallbackImage = '/default.base64' }) => {
   try {
     // Check cache first
     if (imageCache.has(keyStr)) {
-      const cachedImage = imageCache.get(keyStr);
-      if (cachedImage) {
-        return cachedImage;
-      }
+      return imageCache.get(keyStr)!;
     }
 
-    // Fetch base64 image using Axios
-    const path = `/img/${keyStr}.base64`
-    const response = await axios.get(path);
-    const base64Image = response?.data;
+    // Image fetch
+    const base64Image = await fetchImage(keyStr);
 
     // Cache the fetched image
     imageCache.set(keyStr, base64Image);
 
     return base64Image;
   } catch (error) {
-    console.error(':( Error fetching image: ', error);
-    throw error;
+    console.error(`Error loading image: ${error}`);
+    return fallbackImage;
   }
-};
+}
 
 export { loadImage };

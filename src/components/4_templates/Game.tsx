@@ -19,9 +19,9 @@ import { PlayerObject, RootState } from '@typage/mainType'
 /* GAME */
 const Game: FC = memo(() => {
   // Get button state, player object, and border color from Redux store
-  const buttonState: boolean = useSelector((state: RootState) => state.gameElement.button)
-  const playerObj: PlayerObject | null = useSelector((state: RootState) => state.gameElement.winner)
-  const borderColor: string = useSelector((state: RootState) => state.gameElement.borderColor)
+  const buttonState: boolean = useSelector((state: RootState) => state.game.button)
+  const playerObj: PlayerObject | null = useSelector((state: RootState) => state.game.winner)
+  const borderColor: string = useSelector((state: RootState) => state.game.borderColor)
 
   return (
     <div className="mainGameContainer">

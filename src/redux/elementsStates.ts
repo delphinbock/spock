@@ -22,16 +22,7 @@ const initialState = {
   scoreComputerNum: 0,
   scorePlayerArr: ["0"],
   scoreComputerArr: ["0"],
-  theme: {
-    light: {
-      active: true,
-      background: "orange",
-    },
-    dark: {
-      active: false,
-      background: "#222222",
-    },
-  },
+  theme: "light",
 };
 
 // Create the slice
@@ -49,14 +40,8 @@ const gameSlice = createSlice({
     borderColor: (state, action) => {
       state.borderColor = action.payload;
     },
-    changeTheme: (state, action) => {
-      if (action.payload === "light") {
-        state.theme.light.active = true;
-        state.theme.dark.active = false;
-      } else {
-        state.theme.dark.active = true;
-        state.theme.light.active = false;
-      }
+    changeTheme: (state) => {
+      state.theme = state.theme === "light" ? "dark" : "light";
     },
     incrementPlayerScore: (state) => {
       state.scorePlayerNum += 1;
